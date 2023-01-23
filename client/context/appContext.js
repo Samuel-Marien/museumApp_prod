@@ -45,14 +45,14 @@ const reset = '\x1b[0m'
 const underscore = '\x1b[4m'
 
 if (typeof window !== 'undefined') {
-  console.log('%c👨‍💻 You are on the browser', 'color:yellow;')
+  // console.log('%c👨‍💻 You are on the browser', 'color:yellow;')
   var token = localStorage.getItem('token')
   var user = localStorage.getItem('user')
   var userLocation = localStorage.getItem('userLocation')
 } else {
-  console.log(
-    `\n${bright}${red}⚠️  ${underscore}CAN'T${reset}${red} use localStorage ⚠️\n`
-  )
+  // console.log(
+  //   `\n${bright}${red}⚠️  ${underscore}CAN'T${reset}${red} use localStorage ⚠️\n`
+  // )
 }
 
 const initialState = {

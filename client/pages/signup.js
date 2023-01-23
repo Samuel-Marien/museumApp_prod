@@ -14,7 +14,7 @@ const Signup = () => {
       <div
         className="h-screen "
         style={{
-          background: ' url(images/landing3.jpg)',
+          background: ' url(/images/landing3.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: ' center',
           backgroundRepeat: 'no-repeat'

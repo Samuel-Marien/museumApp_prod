@@ -14,7 +14,7 @@ const Login = () => {
       <div
         className="h-screen "
         style={{
-          background: ' url(images/landing5.jpg)',
+          background: ' url(/images/landing5.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: ' center',
           backgroundRepeat: 'no-repeat'

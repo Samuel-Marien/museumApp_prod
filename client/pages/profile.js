@@ -26,7 +26,7 @@ const Profile = () => {
       <div
         className="h-screen "
         style={{
-          background: ' url(images/landing101.png)',
+          background: ' url(/images/landing101.png)',
           backgroundSize: 'cover',
           backgroundPosition: ' center',
           backgroundRepeat: 'no-repeat'
