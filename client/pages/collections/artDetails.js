@@ -12,9 +12,8 @@ import ArtDetailsContainer from '../../components/ArtDetailsContainer'
 import Navbar from '../../components/Navbar'
 
 let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
-const replacementImage = '../images/landing8.jpg'
 
-const artDetails = () => {
+const ArtDetails = () => {
   const { saveCollectionArt, user } = useAppContext()
   const [art, setArt] = useState([])
   const [myCurrentImage, setMyCurrentImage] = useState(0)
@@ -42,7 +41,7 @@ const artDetails = () => {
     return function cleanup() {
       console.log('clean')
     }
-  }, [router.isReady])
+  }, [router.isReady, id])
 
   useEffect(() => {
     setThumbMyArray(art.images && art.images)
@@ -56,7 +55,12 @@ const artDetails = () => {
       }
       if (attribs.href) {
         return (
-          <a style={{ color: 'hotpink' }} href={attribs.href} target="_blank">
+          <a
+            style={{ color: 'hotpink' }}
+            href={attribs.href}
+            target="_blank"
+            rel="noreferrer"
+          >
             {domToReact(children, options)}
           </a>
         )
@@ -138,6 +142,7 @@ const artDetails = () => {
               myThumbArray.map((item, index) => {
                 return (
                   <img
+                    alt={`carrousel item number ${item.id}`}
                     onClick={() => handleClick(item.id)}
                     className={
                       index === myCurrentImage
@@ -246,4 +251,4 @@ const artDetails = () => {
   )
 }
 
-export default artDetails
+export default ArtDetails

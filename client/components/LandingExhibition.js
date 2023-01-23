@@ -24,7 +24,7 @@ const LandingExhibition = () => {
     return scrollY.onChange((latest) => {
       return latest > 70 ? setAnimationStart(true) : setAnimationStart(false)
     })
-  }, [])
+  }, [scrollY])
 
   useEffect(() => {
     const response = async () => {

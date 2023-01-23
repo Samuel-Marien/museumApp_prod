@@ -10,7 +10,7 @@ import MyHeader from '../components/MyHeader'
 
 import { MdHomeFilled } from 'react-icons/md'
 
-const profile = () => {
+const Profile = () => {
   const router = useRouter()
   const { user } = useAppContext()
 
@@ -53,4 +53,4 @@ const profile = () => {
   )
 }
 
-export default profile
+export default Profile

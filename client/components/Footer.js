@@ -79,7 +79,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center md:text-end border-t border-t-slate-500 md:border-none mt-5 py-5 md:mt-0 md:py-0">
-            <p>👋 Hello! I'm Samuel Marien - Web Developer</p>
+            <p>👋 Hello! I&apos;m Samuel Marien - Web Developer</p>
             <p className="">You like this site? Hire Me!</p>
 
             <div className="flex mt-5 text-2xl justify-center md:justify-end space-x-5">

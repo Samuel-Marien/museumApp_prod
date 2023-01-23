@@ -68,7 +68,7 @@ const LandingCollections = () => {
     return scrollY.onChange((latest) => {
       return latest > 1500 ? setAnimationStart(true) : setAnimationStart(false)
     })
-  }, [])
+  }, [scrollY])
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -76,7 +76,7 @@ const LandingCollections = () => {
         ? setAnimationButtonStart(true)
         : setAnimationButtonStart(false)
     })
-  }, [])
+  }, [scrollY])
 
   useEffect(() => {
     try {

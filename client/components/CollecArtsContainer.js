@@ -215,8 +215,8 @@ const CollecArtsContainer = () => {
               </div>
             </div>
             <p className="text-xs md:text-sm italic w-full text-center">
-              {totalCollecArts} collector's item{totalCollecArts > 1 && 's'}{' '}
-              found{' '}
+              {totalCollecArts} collector&apos;s item
+              {totalCollecArts > 1 && 's'} found{' '}
               <span className="hidden md:inline">
                 with your current selection.
               </span>

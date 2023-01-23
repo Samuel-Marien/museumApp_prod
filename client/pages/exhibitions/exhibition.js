@@ -67,7 +67,7 @@ const Exhibition = () => {
     return function cleanup() {
       console.log('clean')
     }
-  }, [router.isReady])
+  }, [router.isReady, id])
 
   // console.log(myExhibition)
 

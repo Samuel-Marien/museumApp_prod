@@ -158,7 +158,7 @@ const ExhibArtsContainer = () => {
               </div>
             </div>
             <p className="text-xs md:text-sm italic w-full text-center">
-              {totalArts} collector's item{totalArts > 1 && 's'} found{' '}
+              {totalArts} collector&apos;s item{totalArts > 1 && 's'} found{' '}
               <span className="hidden md:inline">
                 with your current selection.
               </span>

@@ -8,7 +8,7 @@ import CollecArtsContainer from '../components/CollecArtsContainer'
 import Navbar from '../components/Navbar'
 import MyHeader from '../components/MyHeader'
 
-const userCollection = () => {
+const UserCollection = () => {
   const router = useRouter()
   const { user, artsCategory } = useAppContext()
 
@@ -45,4 +45,4 @@ const userCollection = () => {
   )
 }
 
-export default userCollection
+export default UserCollection

@@ -124,6 +124,7 @@ const ArtDetailsContainer = (props) => {
               maxHeight: '600px'
             }}
             src={`${imageUrl}/size4/${imgUrl}`}
+            alt={title}
           />
         </div>
         <div className=" mt-2 flex space-x-2 overflow-auto scrollbar cursor-pointer">

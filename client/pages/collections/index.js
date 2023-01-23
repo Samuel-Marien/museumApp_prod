@@ -335,7 +335,6 @@ const CollectionsHome = () => {
             {myCollectionIntro.name}
           </p>
         </div>
-        {numOfItems}
         <MyForm
           onChange={handleSearch}
           value={userSearch}
