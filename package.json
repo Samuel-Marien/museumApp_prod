@@ -5,12 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "client": "cd client && npm run dev",
+    "client-dev": "cd client && npm run dev",
+    "client-prod": "cd client && npm run build && npm run prod",
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js --ignore client",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client-prod\""
   },
   "author": "",
   "license": "ISC",

@@ -11,7 +11,6 @@ import { useAppContext } from '../../context/appContext'
 
 import MyHeader from '../../components/MyHeader'
 import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer.js'
 
 import { HiOutlineSaveAs } from 'react-icons/hi'
 import { FaSearch } from 'react-icons/fa'
@@ -185,7 +184,7 @@ const MyForm = (props) => {
               />
             </div>
             {/* item by page  */}
-            <div className="flex">
+            {/* <div className="flex">
               <label
                 htmlFor="itemByPage"
                 className="text-xl text-slate-200 ml-5"
@@ -207,7 +206,7 @@ const MyForm = (props) => {
               <span className="pt-1 text-slate-200 bg-slate-500 bg-opacity-50 rounded-r-sm px-2 border-l border-slate-400">
                 Arts / Page
               </span>
-            </div>
+            </div> */}
           </motion.div>
         </>
       )}
