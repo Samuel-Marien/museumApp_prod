@@ -11,6 +11,10 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
+import helmet from 'helmet'
+import xss from 'xss-clean'
+import mongoSanitize from 'express-mongo-sanitize'
+
 // db and authUser
 import connectDB from './db/connect.js'
 
@@ -34,6 +38,9 @@ app.use(express.static(path.resolve(__dirname, './client/out')))
 
 app.use(cors())
 app.use(express.json())
+app.use(helmet())
+app.use(xss())
+app.use(mongoSanitize())
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/arts', authenticatedUser, exhibArtRoutes)
