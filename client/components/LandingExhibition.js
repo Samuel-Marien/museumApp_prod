@@ -34,8 +34,6 @@ const LandingExhibition = () => {
     response()
   }, [])
 
-  // console.log(myExhibition)
-
   const hasMounted = useHasMounted()
   if (!hasMounted) {
     return null

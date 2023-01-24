@@ -32,7 +32,7 @@ const MyLink = (props) => {
   )
 }
 
-const Navbar = (props) => {
+const Navbar = () => {
   const ref = useRef()
   const ref2 = useRef()
   const ref3 = useRef()

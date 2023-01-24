@@ -17,7 +17,7 @@ const getAllArtsByCollec = async (id, limit, offset = 0, title) => {
       })
     return response
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 

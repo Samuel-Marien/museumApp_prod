@@ -81,8 +81,6 @@ const CollecArtsContainer = () => {
       handleChange({ name: e.target.name, value: 'all' })
     }
   }
-  // console.log(artsCollec)
-  // console.log(numOfAllArts)
 
   return (
     <div>

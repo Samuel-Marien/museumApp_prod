@@ -177,7 +177,6 @@ const AppProvider = ({ children }) => {
         'http://localhost:5000/api/v1/auth/register',
         currentUser
       )
-      // console.log(response)
       const { user, token, location } = response.data
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -186,7 +185,6 @@ const AppProvider = ({ children }) => {
 
       addToLocalStorage({ user, token, location })
     } catch (error) {
-      // console.log(error.response)
       dispatch({
         type: REGISTER_USER_ERROR,
         payload: { msg: error.response.data.msg }
@@ -401,7 +399,6 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_USER_COLLEC_ART_BEGIN })
     try {
       const { data } = await authFetch(url)
-      // console.log(data)
 
       const {
         artsCollec,
@@ -463,7 +460,6 @@ const AppProvider = ({ children }) => {
       getAllUserArts()
       dispatch({ type: EDIT_ART_SUCCESS })
     } catch (error) {
-      // console.log(error)
       if (error.response.status === 401) return
       dispatch({
         type: EDIT_ART_ERROR,
@@ -480,7 +476,6 @@ const AppProvider = ({ children }) => {
       getAllCollectionUserArts()
       dispatch({ type: EDIT_COLLEC_ART_SUCCESS })
     } catch (error) {
-      // console.log(error)
       if (error.response.status === 401) return
       dispatch({
         type: EDIT_COLLEC_ART_ERROR,

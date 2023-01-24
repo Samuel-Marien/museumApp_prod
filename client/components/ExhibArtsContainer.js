@@ -74,9 +74,6 @@ const ExhibArtsContainer = () => {
     }
   }
 
-  // console.log(numOfExhibFavorite)
-  // console.log(numOfAllArts)
-
   return (
     <div>
       {/* Form */}

@@ -9,7 +9,6 @@ const MyHeader = (props) => {
   const { description } = props
   const { user } = useAppContext()
 
-  // console.log(user)
   const userName = user ? user.name : 'Visitor not logged in'
 
   return (

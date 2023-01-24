@@ -33,7 +33,6 @@ const ArtDetails = () => {
     if (router.isReady) {
       const response = async () => {
         const data = await getOneArtDetails(id)
-        // console.log(data)
         setArt(data)
       }
       response()
@@ -104,12 +103,7 @@ const ArtDetails = () => {
     )
   }
 
-  // console.log(id)
-  // console.log(art)
-  // console.log(myThumbArray)
-
   const handleClick = (id) => {
-    // console.log(id)
     myThumbArray.filter((item, index) => {
       return item.id === id && setMyCurrentImage(index)
     })

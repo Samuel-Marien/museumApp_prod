@@ -46,8 +46,6 @@ const Exhibition = () => {
   const [myExhibition, setMyExhibition] = useState([])
   const [myCurrentImage, setMyCurrentImage] = useState(0)
 
-  // console.log(router)
-
   // check authentication:
   useEffect(() => {
     if (!user) {
@@ -68,8 +66,6 @@ const Exhibition = () => {
       console.log('clean')
     }
   }, [router.isReady, id])
-
-  // console.log(myExhibition)
 
   const handleSubmit = (e) => {
     e.preventDefault()

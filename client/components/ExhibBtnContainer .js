@@ -48,31 +48,12 @@ const ExhibBtnContainer = () => {
         <MySelectorBtn icon={<BiArrowToLeft />} onClick={firstPage} />
         <MySelectorBtn icon={<BiLeftArrowAlt />} onClick={prevPage} />
       </div>
-
-      {/* <div>
-        {pages.map((pageNumber) => {
-          return (
-            <button
-              onClick={() => changeExhibPage(pageNumber)}
-              type="button"
-              key={pageNumber}
-              className={
-                pageNumber === exhibPage ? 'bg-red-500' : 'bg-blue-500'
-              }
-            >
-              {pageNumber}
-            </button>
-          )
-        })}
-      </div> */}
-
       <PageSelector
         pagesArray={pages}
         func={changeExhibPage}
         currentPage={exhibPage}
         numOfAllPages={numOfPages}
       />
-
       <div>
         <MySelectorBtn icon={<BiRightArrowAlt />} onClick={nextPage} />
         <MySelectorBtn icon={<BiArrowToRight />} onClick={lastPage} />

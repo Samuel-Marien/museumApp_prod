@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { object } from 'yup'
@@ -29,12 +28,6 @@ const ProfileForm = () => {
   const [email, setEmail] = useState(user?.email)
   const [lastName, setLastName] = useState(user?.lastName)
   const [location, setLocation] = useState(user?.location)
-
-  // console.log(user?.location)
-
-  // useEffect(() => {
-  //   setLocation(user?.location)
-  // }, [user])
 
   return (
     <>

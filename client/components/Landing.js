@@ -12,7 +12,7 @@ import MyButton from './MyButton'
 const Landing = () => {
   const { user } = useAppContext()
 
-  // check l'hydration du premier rendu
+  // check first render hydratation
   const hasMounted = useHasMounted()
   if (!hasMounted) {
     return null

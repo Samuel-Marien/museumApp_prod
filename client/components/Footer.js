@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Logo from './Logo'
 
 import { GiDreamCatcher } from 'react-icons/gi'
-import { MdLocationCity } from 'react-icons/md'
 import {
   FaGithubSquare,
   FaLinkedin,

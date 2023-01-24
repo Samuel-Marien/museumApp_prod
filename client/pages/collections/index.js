@@ -228,8 +228,6 @@ const CollectionsHome = () => {
   const [totalPages, setTotalPages] = useState(0)
   const [itemByPage, setItemByPage] = useState(16)
 
-  // const itemByPage = 16
-
   useEffect(() => {
     if (!user) {
       router.push('/login')
@@ -308,8 +306,6 @@ const CollectionsHome = () => {
   const handleItemByPage = (e) => {
     setItemByPage(e.target.value)
   }
-
-  // console.log(userSearch)
 
   const hasMounted = useHasMounted()
   if (!hasMounted) {

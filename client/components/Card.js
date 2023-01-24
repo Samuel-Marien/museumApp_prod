@@ -21,7 +21,6 @@ const Card = (props) => {
   } = props
 
   return (
-    //
     <>
       {userConnected ? (
         <Link

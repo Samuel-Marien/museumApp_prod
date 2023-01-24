@@ -56,9 +56,6 @@ const ExhibitionHome = () => {
       : setMyOffset((myOffset -= itemByPage))
   }
 
-  // console.log(myOffset)
-  // console.log(router)
-
   return (
     <>
       <MyHeader description="Exhibitions Home" />

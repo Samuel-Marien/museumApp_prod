@@ -14,7 +14,7 @@ const getArtsByCollec = async (id) => {
       })
     return response
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 

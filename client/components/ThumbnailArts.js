@@ -20,8 +20,6 @@ const ThumbnailArts = (props) => {
 
   const [show, setShow] = useState(false)
 
-  // console.log(show)
-
   return (
     <div
       onMouseEnter={() => setShow(true)}
@@ -75,7 +73,6 @@ const ThumbnailArts = (props) => {
                 }}
               >
                 <button
-                  // onClick={() => deleteExhibArt(artId)}
                   onClick={deleteFunc}
                   className="hover:scale-110 hover:text-slate-100 transition-all duration-300 active:scale-105 active:text-pink-800"
                 >
@@ -83,9 +80,6 @@ const ThumbnailArts = (props) => {
                 </button>
                 <button
                   onClick={addToFavoriteFunc}
-                  // onClick={() =>
-                  //   addExhibitionArtToFavorite(artId, isFavorite ? false : true)
-                  // }
                   className="hover:scale-110 hover:text-slate-100 transition-all duration-300 active:scale-105 active:text-yellow-500"
                 >
                   <span
