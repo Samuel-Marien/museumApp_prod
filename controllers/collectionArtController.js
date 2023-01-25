@@ -144,7 +144,7 @@ const deleteCollectionUserArt = async (req, res) => {
 
 const addCollectionArtToFavorite = async (req, res) => {
   const { id: artId } = req.params
-  const art = await CollectionArt.findOne({ id: artId })
+  const art = await CollectionArt.findOne({ _id: artId })
 
   if (!art) {
     throw new NotFounderror(`No art found with thisid: ${artId}`)
