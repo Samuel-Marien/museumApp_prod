@@ -212,9 +212,9 @@ const AppProvider = ({ children }) => {
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER })
     removeUserFromLocalStorage()
-    setTimeout(() => {
-      router.push('/')
-    }, 1000)
+    // setTimeout(() => {
+    router.push('/')
+    // }, 1000)
   }
 
   const updateUser = async (currentUser) => {
@@ -368,8 +368,7 @@ const AppProvider = ({ children }) => {
         }
       })
     } catch (error) {
-      console.log(error.response)
-      // logoutUser()
+      logoutUser()
     }
     clearAlert()
   }
@@ -412,8 +411,7 @@ const AppProvider = ({ children }) => {
         }
       })
     } catch (error) {
-      console.log(error.response)
-      // logoutUser()
+      logoutUser()
     }
     clearAlert()
   }
@@ -429,8 +427,7 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/arts/${artId}`)
       getAllUserArts()
     } catch (error) {
-      console.log(error.response)
-      // logoutUser()
+      logoutUser()
     }
   }
 
@@ -441,8 +438,7 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/collec-arts/${artId}`)
       getAllCollectionUserArts()
     } catch (error) {
-      console.log(error.response)
-      // logoutUser()
+      logoutUser()
     }
   }
 

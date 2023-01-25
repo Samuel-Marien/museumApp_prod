@@ -102,9 +102,7 @@ const reducer = (state, action) => {
       ...initialState,
       user: null,
       token: null,
-      userLocation: '',
-      numOfExhibFavorite: 0,
-      numOfCollecFavorite: 0
+      userLocation: ''
     }
   }
 
