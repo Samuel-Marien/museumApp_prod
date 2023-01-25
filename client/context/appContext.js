@@ -173,10 +173,7 @@ const AppProvider = ({ children }) => {
   const registerUser = async (currentUser) => {
     dispatch({ type: REGISTER_USER_BEGIN })
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/v1/auth/register',
-        currentUser
-      )
+      const response = await axios.post('/api/v1/auth/register', currentUser)
       const { user, token, location } = response.data
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -196,10 +193,7 @@ const AppProvider = ({ children }) => {
   const loginUser = async (currentUser) => {
     dispatch({ type: LOGIN_USER_BEGIN })
     try {
-      const { data } = await axios.post(
-        'http://localhost:5000/api/v1/auth/login',
-        currentUser
-      )
+      const { data } = await axios.post('/api/v1/auth/login', currentUser)
       const { user, token, location } = data
       dispatch({
         type: LOGIN_USER_SUCCESS,
