@@ -62,12 +62,8 @@ const CollecArtsContainer = () => {
     setMyCheck
   ])
 
-  console.log(myCheck)
-
   const handleSearch = (e) => {
     if (isLoading) return
-    // console.log({ name: e.target.name, value: e.target.value })
-
     handleChange({ name: e.target.name, value: e.target.value })
   }
 

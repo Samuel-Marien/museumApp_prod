@@ -116,13 +116,13 @@ const AppProvider = ({ children }) => {
 
   // axios
   // prod
-  // const authFetch = axios.create({
-  //   baseURL: '/api/v1'
-  // })
-  // dev
   const authFetch = axios.create({
-    baseURL: '//localhost:5000/api/v1'
+    baseURL: '/api/v1'
   })
+  // dev
+  // const authFetch = axios.create({
+  //   baseURL: '//localhost:5000/api/v1'
+  // })
 
   // request
   authFetch.interceptors.request.use(
@@ -153,11 +153,11 @@ const AppProvider = ({ children }) => {
   )
 
   const clearAlert = () => {
-    // setTimeout(() => {
-    dispatch({
-      type: CLEAR_ALERT
-    })
-    // }, 3000)
+    setTimeout(() => {
+      dispatch({
+        type: CLEAR_ALERT
+      })
+    }, 3000)
   }
 
   const handleChange = ({ name, value }) => {
@@ -180,12 +180,12 @@ const AppProvider = ({ children }) => {
     dispatch({ type: REGISTER_USER_BEGIN })
     try {
       // prod
-      // const response = await axios.post('/api/v1/auth/register', currentUser)
+      const response = await axios.post('/api/v1/auth/register', currentUser)
       // dev
-      const response = await axios.post(
-        '//localhost:5000/api/v1/auth/register',
-        currentUser
-      )
+      // const response = await axios.post(
+      //   '//localhost:5000/api/v1/auth/register',
+      //   currentUser
+      // )
       const { user, token, location } = response.data
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -206,12 +206,12 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGIN_USER_BEGIN })
     try {
       // dev
-      const { data } = await axios.post(
-        '//localhost:5000/api/v1/auth/login',
-        currentUser
-      )
+      // const { data } = await axios.post(
+      //   '//localhost:5000/api/v1/auth/login',
+      //   currentUser
+      // )
       // prod
-      // const { data } = await axios.post('/api/v1/auth/login', currentUser)
+      const { data } = await axios.post('/api/v1/auth/login', currentUser)
       const { user, token, location } = data
       dispatch({
         type: LOGIN_USER_SUCCESS,
@@ -230,21 +230,19 @@ const AppProvider = ({ children }) => {
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER })
     removeUserFromLocalStorage()
-    // setTimeout(() => {
     router.push('/')
-    // }, 1000)
   }
 
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN })
     try {
       // dev
-      const { data } = await authFetch.patch(
-        '//localhost:5000/auth/updateUser',
-        currentUser
-      )
+      // const { data } = await authFetch.patch(
+      //   '//localhost:5000/auth/updateUser',
+      //   currentUser
+      // )
       // prod
-      // const { data } = await authFetch.patch('/auth/updateUser', currentUser)
+      const { data } = await authFetch.patch('/auth/updateUser', currentUser)
       const { user, location, token } = data
       dispatch({
         type: UPDATE_USER_SUCCESS,
@@ -523,8 +521,8 @@ const AppProvider = ({ children }) => {
         handleChange,
         changeExhibPage,
         changeCollecPage,
-        myCheck,
-        setMyCheck
+        setMyCheck,
+        myCheck
       }}
     >
       {children}
