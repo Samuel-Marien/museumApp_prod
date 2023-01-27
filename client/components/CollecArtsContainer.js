@@ -15,7 +15,6 @@ import { IoIosAlbums, IoIosCalendar } from 'react-icons/io'
 let myImgUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
 
 const CollecArtsContainer = () => {
-  const [myCheck, setMyCheck] = useState(false)
   const {
     getAllCollectionUserArts,
     artsCollec,
@@ -37,7 +36,9 @@ const CollecArtsContainer = () => {
     categoryOptions,
     numOfCollecPages,
     pageCollec,
-    numOfAllArts
+    numOfAllArts,
+    myCheck,
+    setMyCheck
   } = useAppContext()
 
   useEffect(() => {
@@ -56,11 +57,17 @@ const CollecArtsContainer = () => {
     categoryOptions,
     numOfCollecPages,
     pageCollec,
-    numOfAllArts
+    numOfAllArts,
+    myCheck,
+    setMyCheck
   ])
+
+  console.log(myCheck)
 
   const handleSearch = (e) => {
     if (isLoading) return
+    // console.log({ name: e.target.name, value: e.target.value })
+
     handleChange({ name: e.target.name, value: e.target.value })
   }
 

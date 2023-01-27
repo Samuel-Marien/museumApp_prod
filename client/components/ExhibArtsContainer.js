@@ -14,7 +14,6 @@ import { MdOutlineSort } from 'react-icons/md'
 import { IoIosAlbums, IoIosCalendar } from 'react-icons/io'
 
 const ExhibArtsContainer = () => {
-  const [myCheck, setMyCheck] = useState(false)
   const {
     getAllUserArts,
     arts,
@@ -34,7 +33,9 @@ const ExhibArtsContainer = () => {
     numOfExhibFavorite,
     artsCategoryOptions,
     artsCategory,
-    numOfAllArts
+    numOfAllArts,
+    myCheck,
+    setMyCheck
   } = useAppContext()
 
   useEffect(() => {
@@ -48,7 +49,9 @@ const ExhibArtsContainer = () => {
     favoriteOptions,
     artsCategoryOptions,
     artsCategory,
-    numOfAllArts
+    numOfAllArts,
+    myCheck,
+    setMyCheck
   ])
 
   const handleSubmit = (e) => {

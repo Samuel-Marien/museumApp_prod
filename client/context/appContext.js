@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react'
+import React, { useReducer, useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 import reducer from './reducer'
 import axios from 'axios'
@@ -111,11 +111,17 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [myCheck, setMyCheck] = useState(false)
   const router = useRouter()
 
   // axios
+  // prod
+  // const authFetch = axios.create({
+  //   baseURL: '/api/v1'
+  // })
+  // dev
   const authFetch = axios.create({
-    baseURL: '/api/v1'
+    baseURL: '//localhost:5000/api/v1'
   })
 
   // request
@@ -147,11 +153,11 @@ const AppProvider = ({ children }) => {
   )
 
   const clearAlert = () => {
-    setTimeout(() => {
-      dispatch({
-        type: CLEAR_ALERT
-      })
-    }, 3000)
+    // setTimeout(() => {
+    dispatch({
+      type: CLEAR_ALERT
+    })
+    // }, 3000)
   }
 
   const handleChange = ({ name, value }) => {
@@ -173,7 +179,13 @@ const AppProvider = ({ children }) => {
   const registerUser = async (currentUser) => {
     dispatch({ type: REGISTER_USER_BEGIN })
     try {
-      const response = await axios.post('/api/v1/auth/register', currentUser)
+      // prod
+      // const response = await axios.post('/api/v1/auth/register', currentUser)
+      // dev
+      const response = await axios.post(
+        '//localhost:5000/api/v1/auth/register',
+        currentUser
+      )
       const { user, token, location } = response.data
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -193,7 +205,13 @@ const AppProvider = ({ children }) => {
   const loginUser = async (currentUser) => {
     dispatch({ type: LOGIN_USER_BEGIN })
     try {
-      const { data } = await axios.post('/api/v1/auth/login', currentUser)
+      // dev
+      const { data } = await axios.post(
+        '//localhost:5000/api/v1/auth/login',
+        currentUser
+      )
+      // prod
+      // const { data } = await axios.post('/api/v1/auth/login', currentUser)
       const { user, token, location } = data
       dispatch({
         type: LOGIN_USER_SUCCESS,
@@ -220,7 +238,13 @@ const AppProvider = ({ children }) => {
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN })
     try {
-      const { data } = await authFetch.patch('/auth/updateUser', currentUser)
+      // dev
+      const { data } = await authFetch.patch(
+        '//localhost:5000/auth/updateUser',
+        currentUser
+      )
+      // prod
+      // const { data } = await authFetch.patch('/auth/updateUser', currentUser)
       const { user, location, token } = data
       dispatch({
         type: UPDATE_USER_SUCCESS,
@@ -498,7 +522,9 @@ const AppProvider = ({ children }) => {
         clearFilters,
         handleChange,
         changeExhibPage,
-        changeCollecPage
+        changeCollecPage,
+        myCheck,
+        setMyCheck
       }}
     >
       {children}
