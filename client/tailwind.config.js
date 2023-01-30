@@ -5,7 +5,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        Montserrat: ['Montserrat'],
+        Cousine: ['Cousine'],
+        Anton: ['Anton'],
+        Cedarville: ['Cedarville Cursive']
+      }
+    }
   },
   plugins: []
 }

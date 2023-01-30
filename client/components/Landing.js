@@ -31,16 +31,16 @@ const Landing = () => {
     >
       <Navbar />
       <div className=" z-0 ml-5 lg:ml-10 flex flex-col text-6xl sm:text-9xl font-bold mt-10 lg:mt-48 text-slate-800 absolute top-20 ">
-        <div>
+        <div className="font-Anton tracking-wider">
           <Typed strings={[' BrooKlyn ']} typeSpeed={250} />
         </div>
-        <div className="font-thin text-slate-400">
+        <div className="font-thin text-slate-400 font-Anton tracking-wider">
           <Typed strings={[' Museum ']} typeSpeed={350} />
         </div>
-        <div className="font-thin text-slate-300 text-base sm:text-2xl ml-2.5 ">
+        <div className="font-Cedarville font-thin text-slate-300 text-base sm:text-3xl ml-2.5 ">
           <Typed
             strings={[
-              'Discover the museum&apos;s collections.',
+              'Discover the Brooklyn museum&apos;s collections.',
               'Sit quietly in your chair... It&apos;s Free.'
             ]}
             typeSpeed={100}

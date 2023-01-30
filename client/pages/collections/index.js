@@ -430,7 +430,7 @@ const CollectionsHome = () => {
                   duration: 0.5
                 }}
               >
-                <div className="text-slate-800 md:columns-2 columns-1 px-4 md:px-0 first-letter:font-bold first-letter:text-3xl">
+                <div className="text-slate-800 bg-slate-300 bg-opacity-60 p-5 rounded-sm md:columns-2 columns-1 first-letter:font-bold first-letter:text-5xl first-letter:font-serif">
                   {parse(`${myCollectionIntro.copy_text}`, options)}
                 </div>
               </motion.div>
