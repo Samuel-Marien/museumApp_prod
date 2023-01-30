@@ -95,6 +95,7 @@ const ThumbnailArts = (props) => {
 
 const PaginationContainer = (props) => {
   const { minus, plus, off, item, total } = props
+
   return (
     <div className="p-1 flex justify-center space-x-2 text-slate-400">
       <button
@@ -104,9 +105,17 @@ const PaginationContainer = (props) => {
         <BsFillArrowLeftCircleFill />
       </button>
       <div className=" p-1 flex text-slate-400">
-        <p>
-          Page : {Math.ceil(off / item + 1)} / {total + 1}
-        </p>
+        {total === -1 ? (
+          <span className="animate-bounce font-bold text-3xl ">
+            <span className=" animate-pulse mr-1">.</span>
+            <span className=" animate-pulse mr-1">.</span>
+            <span className=" animate-pulse">.</span>
+          </span>
+        ) : (
+          <p>
+            Page : {Math.ceil(off / item + 1)} / {total + 1}
+          </p>
+        )}
       </div>
       <button
         onClick={plus}
@@ -130,10 +139,10 @@ const MyForm = (props) => {
   } = props
 
   const list = ['highlight', 'full', 'history']
-  const listItemByPage = [8, 16, 24, 32]
+  // const listItemByPage = [8, 16, 24, 32]
 
   return (
-    <div className="flex flex-col items-center mb-10 space-y-2 text-slate-800">
+    <div className="flex flex-col sm:flex-row items-center justify-center mt-5 mb-10 text-slate-800">
       {/* Sort by section  */}
       <div className="flex h-8">
         <label
@@ -144,7 +153,7 @@ const MyForm = (props) => {
           name="sortBySection"
           value={selectValue}
           onChange={onSelectChange}
-          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm"
+          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm sm:rounded-l-sm  mr-1 "
         >
           {list.map((itemValue, index) => {
             return (
@@ -166,10 +175,10 @@ const MyForm = (props) => {
             }}
           >
             {/* Search  */}
-            <div className="flex h-8">
+            <div className="flex h-8 mt-2 sm:mt-0">
               <label
                 htmlFor="search"
-                className="text-xl bg-slate-500 bg-opacity-50 text-slate-50 border-r border-slate-400 p-1.5 px-2 rounded-l-sm"
+                className="text-xl bg-slate-500 bg-opacity-50 text-slate-50 border-r border-slate-400 p-1.5 px-2 "
               >
                 <FaSearch />
               </label>
@@ -178,7 +187,7 @@ const MyForm = (props) => {
                 value={value}
                 name="search"
                 onChange={onChange}
-                className="w-96 bg-slate-500 bg-opacity-50 text-slate-50 rounded-r-sm"
+                className="w-64 sm:w-96 bg-slate-500 bg-opacity-50 text-slate-50 rounded-r-sm"
               />
             </div>
             {/* item by page  */}
@@ -341,7 +350,7 @@ const CollectionsHome = () => {
         {Object.entries(myCollection).length === 0 ? (
           <MySpinner />
         ) : (
-          <div className="container mx-auto w-full ">
+          <div className="mx-auto w-full px-3 md:px-10 ">
             {/* highlight  */}
             {artToDisplay === 'highlight' && (
               <div

@@ -114,7 +114,7 @@ const Navbar = () => {
           <div className="px-5 xl:px-8 py-3 flex justify-between w-full items-center">
             <Logo />
 
-            <ul className="hidden md:flex space-x-10 pl-16 ">
+            <ul className="hidden md:flex space-x-10 ">
               {user ? (
                 <>
                   <li>
@@ -126,11 +126,11 @@ const Navbar = () => {
                             : setShowCollectionsMenu(true)
                         }
                       >
-                        <p className="hover:text-gray-200 flex items-center space-x-2">
+                        <p className="hover:text-gray-200 flex items-center space-x-2 ">
                           <span className="text-sm">
                             <IoIosAlbums />
                           </span>
-                          <span className="hover:text-gray-200">
+                          <span className="hover:text-gray-200 ">
                             Collections
                           </span>
                         </p>
