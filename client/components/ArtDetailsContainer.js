@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { FaExpandArrowsAlt, FaCompressArrowsAlt } from 'react-icons/fa'
 import { IoIosAlbums, IoIosBrush } from 'react-icons/io'
 
+import MySpinner from './MySpinner'
+
 let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
 
 import { HiOutlineSaveAs } from 'react-icons/hi'
@@ -103,6 +105,9 @@ const ArtDetailsContainer = (props) => {
 
   const spanStyle = 'font-bold uppercase '
 
+  if (!imgUrl) {
+    return <MySpinner />
+  }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-800 bg-slate-100 p-5 mx-2 md:mx-0 rounded shadow-lg bg-opacity-70">
       {/* Left part  */}
@@ -119,6 +124,7 @@ const ArtDetailsContainer = (props) => {
               <HiOutlineSaveAs />
             </span>
           </button>
+
           <img
             style={{
               maxHeight: '600px'

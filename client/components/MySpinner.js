@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Typed from 'react-typed'
+// import Typed from 'react-typed'
 
 const RoundedSpinner = () => {
   return (
@@ -86,12 +86,12 @@ const RoundedSpinner = () => {
           strokeWidth="24"
         ></line>
       </svg>
-      <span className="animate-pulse font-medium text-slate-400">
+      {/* <span className="animate-pulse font-medium text-slate-400">
         <Typed
           strings={['Search for your data...', 'Please wait...']}
           typeSpeed={50}
         />
-      </span>
+      </span> */}
     </div>
   )
 }

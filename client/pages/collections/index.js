@@ -11,6 +11,7 @@ import { useAppContext } from '../../context/appContext'
 
 import MyHeader from '../../components/MyHeader'
 import Navbar from '../../components/Navbar'
+import MySpinner from '../../components/MySpinner'
 
 import { HiOutlineSaveAs } from 'react-icons/hi'
 import { FaSearch } from 'react-icons/fa'
@@ -337,42 +338,17 @@ const CollectionsHome = () => {
           displaySearhBar={artToDisplay === 'full'}
         />
         {/* images & contents displayer  */}
-        {/* highlight  */}
-        <div className="container mx-auto w-full ">
-          {artToDisplay === 'highlight' && (
-            <div
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2 px-2 lg:px-0"
-            >
-              {highlightImg.map((item) => {
-                return (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.5
-                    }}
-                  >
-                    <ThumbnailArts
-                      title={item.title}
-                      imageUrl={`${imageUrl}/size4/${item.primary_image}`}
-                      artId={item.id}
-                    />
-                  </motion.div>
-                )
-              })}
-            </div>
-          )}
-
-          {/* full  */}
-          {artToDisplay === 'full' && (
-            <div>
+        {Object.entries(myCollection).length === 0 ? (
+          <MySpinner />
+        ) : (
+          <div className="container mx-auto w-full ">
+            {/* highlight  */}
+            {artToDisplay === 'highlight' && (
               <div
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2"
+        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2 px-2 lg:px-0"
               >
-                {myCollection.map((item) => {
+                {highlightImg.map((item) => {
                   return (
                     <motion.div
                       key={item.id}
@@ -391,33 +367,62 @@ const CollectionsHome = () => {
                   )
                 })}
               </div>
-              <div className="mt-5">
-                <PaginationContainer
-                  minus={handleMinusOffset}
-                  plus={handlePlusOffset}
-                  off={myOffset}
-                  item={itemByPage}
-                  total={totalPages}
-                />
-              </div>
-            </div>
-          )}
+            )}
 
-          {/* history  */}
-          {artToDisplay === 'history' && myCollectionIntro && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.5
-              }}
-            >
-              <div className="text-slate-800 md:columns-2 columns-1 px-4 md:px-0 first-letter:font-bold first-letter:text-3xl">
-                {parse(`${myCollectionIntro.copy_text}`, options)}
+            {/* full  */}
+            {artToDisplay === 'full' && (
+              <div>
+                <div
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
+        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2"
+                >
+                  {myCollection.map((item) => {
+                    return (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 0.5
+                        }}
+                      >
+                        <ThumbnailArts
+                          title={item.title}
+                          imageUrl={`${imageUrl}/size4/${item.primary_image}`}
+                          artId={item.id}
+                        />
+                      </motion.div>
+                    )
+                  })}
+                </div>
+                <div className="mt-5">
+                  <PaginationContainer
+                    minus={handleMinusOffset}
+                    plus={handlePlusOffset}
+                    off={myOffset}
+                    item={itemByPage}
+                    total={totalPages}
+                  />
+                </div>
               </div>
-            </motion.div>
-          )}
-        </div>
+            )}
+
+            {/* history  */}
+            {artToDisplay === 'history' && myCollectionIntro && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5
+                }}
+              >
+                <div className="text-slate-800 md:columns-2 columns-1 px-4 md:px-0 first-letter:font-bold first-letter:text-3xl">
+                  {parse(`${myCollectionIntro.copy_text}`, options)}
+                </div>
+              </motion.div>
+            )}
+          </div>
+        )}
       </div>
     </>
   )

@@ -63,7 +63,7 @@ const Footer = () => {
                 <Logo />
               </div>
               <h1 className="text-2xl lg:text-3xl font-black ml-2">
-                Brooklin Museum
+                Brooklyn Museum
               </h1>
             </div>
 
