@@ -269,6 +269,7 @@ const CollectionsHome = () => {
       // call for History section & highlight
       const introResponse = async () => {
         const data = await getArtsByCollect(id)
+        if (!data) return
         setMyCollectionIntro(data)
         setHighlightImg(data.highlight_images)
       }
@@ -318,6 +319,10 @@ const CollectionsHome = () => {
   if (!hasMounted) {
     return null
   }
+
+  // if (Object.entries(myCollection).length === 0) {
+  //   return
+  // }
 
   return (
     <>
