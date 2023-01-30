@@ -7,6 +7,7 @@ import { getExhibition } from '../../components/API'
 import MyHeader from '../../components/MyHeader'
 import Navbar from '../../components/Navbar'
 import Card from '../../components/Card'
+import MySpinner from '../../components/MySpinner'
 
 import {
   BsFillArrowLeftCircleFill,
@@ -56,6 +57,8 @@ const ExhibitionHome = () => {
       : setMyOffset((myOffset -= itemByPage))
   }
 
+  console.log(typeof myExhibitions)
+
   return (
     <>
       <MyHeader description="Exhibitions Home" />
@@ -96,31 +99,35 @@ const ExhibitionHome = () => {
               </button>
             </div>
           </div>
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+          {Object.entries(myExhibitions).length === 0 ? (
+            <MySpinner />
+          ) : (
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
         lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
-          >
-            {myExhibitions.map((item) => {
-              return (
-                <Card
-                  userConnected={user}
-                  key={item.id}
-                  cardSize="12rem"
-                  isLoading={user}
-                  id={item.id}
-                  title={item.title}
-                  text={item.organizing_department}
-                  dateStart={item.start_date}
-                  dateEnd={item.end_date}
-                  myUrl={
-                    item.primary_image
-                      ? `${imageUrl}/size2/${item.primary_image}`
-                      : replacementImage
-                  }
-                />
-              )
-            })}
-          </div>
+            >
+              {myExhibitions.map((item) => {
+                return (
+                  <Card
+                    userConnected={true}
+                    key={item.id}
+                    cardSize="12rem"
+                    isLoading={user}
+                    id={item.id}
+                    title={item.title}
+                    text={item.organizing_department}
+                    dateStart={item.start_date}
+                    dateEnd={item.end_date}
+                    myUrl={
+                      item.primary_image
+                        ? `${imageUrl}/size2/${item.primary_image}`
+                        : replacementImage
+                    }
+                  />
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -74,10 +74,7 @@ const ThumbnailArts = (props) => {
                     typeSpeed={15}
                   />
                 </div>
-                <button
-                  // onClick={handleSubmit}
-                  className="absolute text-end w-full p-1"
-                >
+                <button className="absolute text-end w-full p-1">
                   <span
                     className="inline-block text-slate-400 p-0.5 shadow-xl rounded bg-slate-800 bg-opacity-20 
           hover:text-green-200 hover:bg-none hover:bg-opacity-0 hover:shadow-none 
@@ -272,7 +269,7 @@ const CollectionsHome = () => {
     }
   }, [router.isReady, id, myOffset, userSearch, itemByPage, numOfItems])
 
-  // options for parsing the html response api
+  // options for parsing html response api
   const options = {
     replace: ({ attribs, children }) => {
       if (!attribs) {
@@ -339,6 +336,8 @@ const CollectionsHome = () => {
           selectItemByPage={itemByPage}
           displaySearhBar={artToDisplay === 'full'}
         />
+        {/* images & contents displayer  */}
+        {/* highlight  */}
         <div className="container mx-auto w-full ">
           {artToDisplay === 'highlight' && (
             <div
@@ -365,6 +364,8 @@ const CollectionsHome = () => {
               })}
             </div>
           )}
+
+          {/* full  */}
           {artToDisplay === 'full' && (
             <div>
               <div
@@ -402,6 +403,7 @@ const CollectionsHome = () => {
             </div>
           )}
 
+          {/* history  */}
           {artToDisplay === 'history' && myCollectionIntro && (
             <motion.div
               initial={{ opacity: 0 }}
