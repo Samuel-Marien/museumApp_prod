@@ -20,10 +20,10 @@ import {
   BsFillArrowRightCircleFill
 } from 'react-icons/bs'
 
-let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
+let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
 
 const ThumbnailArts = (props) => {
-  const { imageUrl, title, artId } = props
+  const { myUrl, title, artId } = props
   const [show, setShow] = useState(false)
 
   return (
@@ -52,7 +52,7 @@ const ThumbnailArts = (props) => {
           <div
             style={{
               height: '20rem',
-              backgroundImage: `url("${imageUrl}")`,
+              backgroundImage: `url("https://${myUrl}")`,
               backgroundSize: 'cover',
               backgroundPosition: 'top'
             }}
@@ -370,7 +370,7 @@ const CollectionsHome = () => {
                     >
                       <ThumbnailArts
                         title={item.title}
-                        imageUrl={`${imageUrl}/size4/${item.primary_image}`}
+                        myUrl={`${imageUrl}/size4/${item.primary_image}`}
                         artId={item.id}
                       />
                     </motion.div>
@@ -398,7 +398,7 @@ const CollectionsHome = () => {
                       >
                         <ThumbnailArts
                           title={item.title}
-                          imageUrl={`${imageUrl}/size4/${item.primary_image}`}
+                          myUrl={`${imageUrl}/size4/${item.primary_image}`}
                           artId={item.id}
                         />
                       </motion.div>

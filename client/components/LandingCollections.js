@@ -9,11 +9,11 @@ import { useAppContext } from '../context/appContext'
 import MyButton from './MyButton'
 import UnauthenticatedModal from './UnauthenticatedModal'
 
-let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
+let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
 const replacementImage = 'images/landing8.jpg'
 
 const Card = (props) => {
-  const { name, imageUrl, id, userConnected, onClick } = props
+  const { name, myUrl, id, userConnected, onClick } = props
 
   return (
     <>
@@ -27,7 +27,7 @@ const Card = (props) => {
           <div className=" flex flex-col items-center cursor-pointer p-1 pt-4 rounded shadow-lg hover:shadow-none transition-all duration-500">
             <div className="overflow-hidden ">
               <img
-                src={imageUrl}
+                src={myUrl}
                 alt={name}
                 style={{ width: '150px', height: '180px' }}
                 className="hover:scale-110 transition-all duration-500"
@@ -45,7 +45,7 @@ const Card = (props) => {
         >
           <div className="overflow-hidden ">
             <img
-              src={imageUrl}
+              src={myUrl}
               alt={name}
               style={{ width: '150px', height: '180px' }}
               className="hover:scale-110 transition-all duration-500"
@@ -102,6 +102,9 @@ const LandingCollections = () => {
       console.log(error)
     }
   }, [])
+
+  console.log(myCollection)
+  // console.log(test)
 
   return (
     <div className="flex flex-col bg-white pb-20">
@@ -176,9 +179,9 @@ const LandingCollections = () => {
                           userConnected={user}
                           id={item.id}
                           name={item.name}
-                          imageUrl={
+                          myUrl={
                             item.highlight_images[0] !== undefined
-                              ? `${imageUrl}/size1/${item.highlight_images[8].primary_image}`
+                              ? `https://${imageUrl}/size1/${item.highlight_images[8].primary_image}`
                               : replacementImage
                           }
                         />

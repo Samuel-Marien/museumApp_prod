@@ -11,7 +11,7 @@ import MyHeader from '../../components/MyHeader'
 import ArtDetailsContainer from '../../components/ArtDetailsContainer'
 import Navbar from '../../components/Navbar'
 
-let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
+let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
 
 const ArtDetails = () => {
   const { saveCollectionArt, user } = useAppContext()
@@ -144,7 +144,7 @@ const ArtDetails = () => {
                         : 'mb-3 hover:scale-95 h-20 transition-transform duration-300'
                     }
                     key={item.id}
-                    src={`${imageUrl}/size1/${item.filename}`}
+                    src={`https://${imageUrl}/size1/${item.filename}`}
                   />
                 )
               })

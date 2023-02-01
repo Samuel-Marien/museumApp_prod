@@ -6,7 +6,7 @@ import { IoIosAlbums, IoIosBrush } from 'react-icons/io'
 
 import MySpinner from './MySpinner'
 
-let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE
+let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
 
 import { HiOutlineSaveAs } from 'react-icons/hi'
 
@@ -131,7 +131,7 @@ const ArtDetailsContainer = (props) => {
             style={{
               maxHeight: '600px'
             }}
-            src={`${imageUrl}/size4/${imgUrl}`}
+            src={`https://${imageUrl}/size4/${imgUrl}`}
             alt={title}
           />
         </div>

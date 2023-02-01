@@ -14,10 +14,6 @@ const MyHeader = (props) => {
   return (
     <Head>
       <title>{siteTitle + ' | ' + userName}</title>
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
       <meta name="description" content={siteTitle + ' - ' + description} />
       <meta name="author" content="Samuel Marien" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
