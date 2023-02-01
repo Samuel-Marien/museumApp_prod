@@ -15,7 +15,7 @@ const MyHeader = (props) => {
     <Head>
       <title>{siteTitle + ' | ' + userName}</title>
       <meta
-        http-equiv="Content-Security-Policy"
+        httpEquiv="Content-Security-Policy"
         content="upgrade-insecure-requests"
       />
       <meta name="description" content={siteTitle + ' - ' + description} />
