@@ -202,7 +202,7 @@ const CollecArtsContainer = () => {
 
           {/* section total art & all fav  */}
           <div className="pt-2 text-slate-400 flex  items-center space-x-1 border-t mt-2 mb-1 border-slate-500">
-            <div className="flex flex-col lg:flex-row lg:space-x-2">
+            <div className=" flex flex-col lg:flex-row lg:space-x-2">
               <div className="w-12 flex space-x-1 items-center py-1 px-2 rounded-lg border border-slate-700 shadow-lg bg-slate-500 text-slate-200 text-sm">
                 <p className="text-slate-800 text-xs">
                   <IoIosAlbums />
@@ -216,15 +216,20 @@ const CollecArtsContainer = () => {
                 <p className="font-bold">{numOfCollecFavorite}</p>
               </div>
             </div>
-            <p className="text-xs md:text-sm italic w-full text-center">
-              {totalCollecArts} collector&apos;s item
+            <p className="font-myText tracking-wide px-5 italic w-full text-center">
+              <span className="font-bold">{totalCollecArts}</span>{' '}
+              collector&apos;s item
               {totalCollecArts > 1 && 's'} found{' '}
               <span className="hidden md:inline">
                 with your current selection.
               </span>
               <span className="block lg:inline">
                 {' '}
-                Including {favoriteArtsByPage} favorite
+                Including{' '}
+                <span className="text-yellow-500 font-bold">
+                  {favoriteArtsByPage}
+                </span>{' '}
+                favorite
                 {favoriteArtsByPage > 1 && 's'} in this page
               </span>
             </p>

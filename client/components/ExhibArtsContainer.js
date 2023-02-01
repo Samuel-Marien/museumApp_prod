@@ -158,14 +158,19 @@ const ExhibArtsContainer = () => {
                 <p className="font-bold">{numOfExhibFavorite}</p>
               </div>
             </div>
-            <p className="text-xs md:text-sm italic w-full text-center">
-              {totalArts} collector&apos;s item{totalArts > 1 && 's'} found{' '}
+            <p className="font-myText tracking-wide px-5 italic w-full text-center">
+              <span className="font-bold">{totalArts}</span> collector&apos;s
+              item{totalArts > 1 && 's'} found{' '}
               <span className="hidden md:inline">
                 with your current selection.
               </span>
               <span className="block lg:inline">
                 {' '}
-                Including {favoriteArtsByPage} favorite
+                Including{' '}
+                <span className="text-yellow-500 font-bold">
+                  {favoriteArtsByPage}
+                </span>{' '}
+                favorite
                 {favoriteArtsByPage > 1 && 's'} in this page
               </span>
             </p>

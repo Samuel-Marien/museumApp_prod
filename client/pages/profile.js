@@ -43,7 +43,7 @@ const Profile = () => {
             </a>
           </Link>
         </div>
-        <div className="flex justify-center md:justify-end md:mr-36 md:pt-36">
+        <div className="flex justify-center md:justify-end md:mr-80 md:pt-36">
           <div className="w-96 ">
             <ProfileForm />
           </div>

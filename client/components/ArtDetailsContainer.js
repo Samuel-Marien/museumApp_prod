@@ -58,8 +58,10 @@ const InfoField = (props) => {
   const { title, data } = props
   return (
     <p>
-      <span className="font-bold uppercase">{data ? title + ':' : ''}</span>{' '}
-      {data}
+      <span className="font-myTitle tracking-wide uppercase">
+        {data ? title + ':' : ''}
+      </span>{' '}
+      <span className="font-myText">{data}</span>
     </p>
   )
 }
@@ -103,7 +105,7 @@ const ArtDetailsContainer = (props) => {
   const [showLabelText, setShowLabelText] = useState(true)
   const [showInfos, setShowInfos] = useState(false)
 
-  const spanStyle = 'font-bold uppercase '
+  const spanStyle = 'font-myTitle tracking-wide uppercase '
 
   if (!imgUrl) {
     return <MySpinner />
@@ -136,7 +138,7 @@ const ArtDetailsContainer = (props) => {
         <div className=" mt-2 flex space-x-2 overflow-auto scrollbar cursor-pointer">
           {imagesArray}
         </div>
-        <p className="mt-2 text-slate-500 italic sm:text-sm text-xs">
+        <p className="font-myText mt-2 text-slate-500 italic sm:text-sm text-xs">
           {imageCaption}{' '}
           <span className="ml-2 font-semibold">
             [{currentImage}/{maxPlusImage}]
@@ -146,14 +148,14 @@ const ArtDetailsContainer = (props) => {
 
       {/* Right part  */}
       <div className="">
-        <h1 className="text-4xl border-t pt-5 sm:pt-0 text-center sm:text-start sm:border-none  sm:text-5xl font-semibold">
+        <h1 className="font-myTitle tracking-wide text-4xl border-t pt-5 sm:pt-0 text-center sm:text-start sm:border-none sm:text-5xl">
           {title}
         </h1>
-        <div className="flex items-center space-x-2 uppercase font-bold  mt-2 text-slate-500 underline cursor-pointer">
+        <div className="font-myTitle tracking-wide flex items-center space-x-2 uppercase  mt-2 text-slate-500 underline cursor-pointer">
           <IoIosAlbums />
           {collections}
         </div>
-        <p className="flex items-center font-semibold text-slate-500 uppercase ">
+        <p className="font-myTitle tracking-wide flex items-center  text-slate-500 uppercase ">
           <span className="mr-2">
             <IoIosBrush />
           </span>
@@ -194,7 +196,7 @@ const ArtDetailsContainer = (props) => {
             />
           </div>
         </div>
-        <div className="mt-2 text-justify first-letter:font-bold first-letter:text-3xl">
+        <div className="font-myText mt-2 text-justify first-letter:font-bold first-letter:text-3xl">
           {showLabelText && (
             <motion.div
               className="mt-2"
@@ -229,18 +231,18 @@ const ArtDetailsContainer = (props) => {
               <InfoField title="Credit" data={credit} />
               <InfoField title="Catalogue description" data={description} />
               <InfoField title="Museum location" data={museumLocation} />
-              <div className="">
+              <div className="font-myText">
                 <span className={spanStyle}>
                   {geoLocation && geoLocation.length !== 0 && 'Geo Location: '}
                 </span>
                 {geoLocation}
               </div>
-              <p>
+              <p className="font-myText">
                 <span className={spanStyle}>Date: </span>
                 {date} - {dateStart}{' '}
                 {dateEnd === dateStart ? null : ' / ' + dateEnd}
               </p>
-              <div className="">
+              <div className="font-myText">
                 <span className={spanStyle}>
                   {exhibitions && exhibitions.length !== 0 && 'Exhibitions: '}
                 </span>
@@ -251,12 +253,12 @@ const ArtDetailsContainer = (props) => {
                 <div className="relative pt-1 w-8/12 ml-5">
                   <div className="flex mb-2 items-center justify-between">
                     <div>
-                      <span className="text-xs font-semibold inline-block  px-2 uppercase rounded-full text-slate-600 bg-slate-200">
+                      <span className="font-myText text-xs inline-block  px-2 uppercase rounded-full text-slate-600 bg-slate-200">
                         {completenessName}
                       </span>
                     </div>
-                    <div className="text-right">
-                      <span className="text-xs font-semibold inline-block text-blue-600">
+                    <div className="text-right font-myText">
+                      <span className="text-xs inline-block text-blue-600">
                         {completenessPercent}%
                       </span>
                     </div>
@@ -269,13 +271,13 @@ const ArtDetailsContainer = (props) => {
                   </div>
                 </div>
               </div>
-              <span className="italic text-slate-500">
+              <span className="font-myText italic text-slate-500">
                 {completenessDescription}
               </span>
-              <div className="mt-4">
+              <div className="mt-4 font-myText">
                 <span className={spanStyle}>Rights statement: </span>
                 <span
-                  className="text-blue-400 cursor-pointer"
+                  className="text-blue-400 cursor-pointer  capitalize"
                   onClick={() =>
                     showRights ? setShowRights(false) : setShowRights(true)
                   }

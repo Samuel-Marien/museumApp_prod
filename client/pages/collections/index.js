@@ -51,16 +51,16 @@ const ThumbnailArts = (props) => {
         >
           <div
             style={{
-              height: '18rem',
+              height: '20rem',
               backgroundImage: `url("${imageUrl}")`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'top'
             }}
           >
             {show && (
               <>
                 <div
-                  className=" h-6 pt-1 text-center text-xs text-slate-300 w-full absolute bottom-0 "
+                  className="font-myText h-8 pt-1 pb-7 text-center  text-slate-300 w-full absolute bottom-0 "
                   style={{
                     backgroundImage:
                       ' linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.7))'
@@ -75,7 +75,7 @@ const ThumbnailArts = (props) => {
                     typeSpeed={15}
                   />
                 </div>
-                <button className="absolute text-end w-full p-1">
+                {/* <button className="absolute text-end w-full p-1">
                   <span
                     className="inline-block text-slate-400 p-0.5 shadow-xl rounded bg-slate-800 bg-opacity-20 
           hover:text-green-200 hover:bg-none hover:bg-opacity-0 hover:shadow-none 
@@ -83,7 +83,7 @@ const ThumbnailArts = (props) => {
                   >
                     <HiOutlineSaveAs />
                   </span>
-                </button>
+                </button> */}
               </>
             )}
           </div>
@@ -112,7 +112,7 @@ const PaginationContainer = (props) => {
             <span className=" animate-pulse">.</span>
           </span>
         ) : (
-          <p>
+          <p className="font-myTitle tracking-wide font-thin">
             Page : {Math.ceil(off / item + 1)} / {total + 1}
           </p>
         )}
@@ -153,7 +153,7 @@ const MyForm = (props) => {
           name="sortBySection"
           value={selectValue}
           onChange={onSelectChange}
-          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm sm:rounded-l-sm  mr-1 "
+          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm sm:rounded-l-sm focus:outline-none mr-1 "
         >
           {list.map((itemValue, index) => {
             return (
@@ -233,7 +233,7 @@ const CollectionsHome = () => {
   const [myOffset, setMyOffset] = useState(0)
   const [userSearch, setUserSearch] = useState('')
   const [totalPages, setTotalPages] = useState(0)
-  const [itemByPage, setItemByPage] = useState(16)
+  const [itemByPage, setItemByPage] = useState(12)
 
   useEffect(() => {
     if (!user) {
@@ -320,10 +320,6 @@ const CollectionsHome = () => {
     return null
   }
 
-  // if (Object.entries(myCollection).length === 0) {
-  //   return
-  // }
-
   return (
     <>
       <MyHeader description={`${myCollectionIntro.name} Collection`} />
@@ -338,7 +334,7 @@ const CollectionsHome = () => {
       >
         <Navbar />
         <div className="md:text-4xl  text-center mt-4 text-slate-400">
-          <p className="text-6xl first-letter:font-black first-letter:text-slate-800 tracking-wider">
+          <p className="font-myTitle tracking-widest text-7xl first-letter:text-slate-800">
             {myCollectionIntro.name}
           </p>
         </div>
@@ -359,8 +355,8 @@ const CollectionsHome = () => {
             {/* highlight  */}
             {artToDisplay === 'highlight' && (
               <div
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2 px-2 lg:px-0"
+                className="container mx-auto mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+        lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
               >
                 {highlightImg.map((item) => {
                   return (
@@ -387,8 +383,8 @@ const CollectionsHome = () => {
             {artToDisplay === 'full' && (
               <div>
                 <div
-                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-        lg:grid-cols-6 xl:grid-cols-8 sm:gap-6 gap-2"
+                  className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+        lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
                 >
                   {myCollection.map((item) => {
                     return (

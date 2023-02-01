@@ -5,12 +5,9 @@ import { BsArrowDownCircle } from 'react-icons/bs'
 const ScrollButton = (props) => {
   const { href } = props
   return (
-    <a
-      href={href}
-      className="flex items-center text-slate-500 animate-pulse cursor-pointer"
-    >
+    <a href={href} className="flex items-center text-slate-500 animate-pulse">
       <BsArrowDownCircle />
-      <span className="ml-3">Scroll down</span>
+      <span className="ml-3 font-myTitle">Scroll down</span>
     </a>
   )
 }

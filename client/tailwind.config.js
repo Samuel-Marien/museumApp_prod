@@ -7,10 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: ['Montserrat'],
-        Cousine: ['Cousine'],
-        Anton: ['Anton'],
-        Cedarville: ['Cedarville Cursive']
+        myText: ['Pontano Sans'],
+        myTitle: ['Anton'],
+        myScript: ['Cedarville Cursive']
       }
     }
   },

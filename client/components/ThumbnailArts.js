@@ -48,10 +48,10 @@ const ThumbnailArts = (props) => {
           {show && (
             <div
               style={{ height: '250px' }}
-              className=" flex flex-col justify-between font-semibold text-xs  text-slate-300 w-full"
+              className=" flex flex-col justify-between font-semibold text-xs text-slate-300 w-full"
             >
               <div
-                className="pt-1 h-7 text-center "
+                className="font-myText tracking-widest pt-1 h-7 text-center "
                 style={{
                   backgroundImage:
                     ' linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,.7))'

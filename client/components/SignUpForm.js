@@ -61,7 +61,7 @@ const SignupForm = () => {
     >
       {({ isSubmitting, isValid, dirty }) => (
         <Form className="p-5 flex flex-col text-slate-300 md:text-slate-700">
-          <h1 className="text-center my-2 font-bold uppercase text-3xl">
+          <h1 className="font-myTitle tracking-widest text-slate-600 text-center my-2 uppercase text-3xl">
             Sign up
           </h1>
           {alertText && alertType === 'danger' && (
@@ -109,7 +109,7 @@ const SignupForm = () => {
               </button>
             </motion.div>
           )}
-          <div className="mt-3 text-sm underline">
+          <div className="font-myText mt-3 text-sm underline">
             <Link href="/login">
               <a>Already registered?</a>
             </Link>

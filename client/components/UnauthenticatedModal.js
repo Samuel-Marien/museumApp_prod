@@ -34,10 +34,10 @@ const UnauthenticatedModal = (props) => {
         animate="visible"
         exit="hidden"
         variants={overlayVariants}
-        className=" fixed top-0 left-0 right-0 bottom-0 bg-slate-200 flex justify-center items-center bg-opacity-80 z-10"
+        className="font-myText fixed top-0 left-0 right-0 bottom-0 bg-slate-200 flex justify-center items-center bg-opacity-80 z-10"
       >
         <motion.div
-          style={{ maxWidth: '500px' }}
+          style={{ maxWidth: '600px' }}
           className="w-11/12 bg-slate-100 rounded shadow-2xl"
           initial={{ y: '100vh' }}
           animate={{ y: 0 }}
@@ -53,10 +53,12 @@ const UnauthenticatedModal = (props) => {
                 <AiOutlineCloseCircle />
               </button>
             </div>
-            <h5 className="text-center text-2xl font-black mb-3">Join us!</h5>
+            <h5 className="font-myTitle tracking-wide text-slate-600 uppercase text-center text-2xl mb-3">
+              Join us!
+            </h5>
           </div>
-          <div className="px-4 mt-3 text-center">
-            Register and enjoy all the features of the brooklin museum website!
+          <div className="px-4 mt-3 text-center text-xl ">
+            Register yourself and enjoy all brooklyn museum content freely!
           </div>
           <div className="">
             <div className="flex flex-col lg:flex-row lg:space-x-16 space-y-5 lg:space-y-0 items-center md:mx-0 justify-center my-5">

@@ -42,7 +42,7 @@ const LandingExhibition = () => {
   return (
     <div className="flex flex-col justify-between">
       <div className="container mx-auto">
-        <div className="mt-10 mb-0 md:my-20 border-t-2 border-slate-200">
+        <div className="font-myTitle tracking-widest mt-10 mb-0 md:my-20 border-t-2 border-slate-200">
           {animationStart && (
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}

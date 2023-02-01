@@ -114,7 +114,7 @@ const Navbar = () => {
           <div className="px-5 xl:px-8 py-3 flex justify-between w-full items-center">
             <Logo />
 
-            <ul className="hidden md:flex space-x-10 ">
+            <ul className="hidden md:flex justify-center pr-14 space-x-7">
               {user ? (
                 <>
                   <li>
@@ -149,7 +149,7 @@ const Navbar = () => {
                   />
                 </>
               ) : (
-                <p className="italic">
+                <p className="font-myText tracking-widest italic">
                   Discover a selection of unique and daring works
                 </p>
               )}

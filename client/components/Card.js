@@ -57,8 +57,8 @@ const Card = (props) => {
                   {dateEnd}
                 </p>
               </div>
-              <h1 className="text-xl font-semibold mt-2 border-t py-1">
-                {title.length > 32 ? title.slice(0, 32) + '...' : title}
+              <h1 className="font-myTitle text-2xl font-thin tracking-wider text-slate-700 mt-2 border-t py-1">
+                {title.length > 25 ? title.slice(0, 25) + '...' : title}
               </h1>
               <p className="text-slate-500 my-1 text-sm flex items-center justify-center">
                 <span className="mr-1">
@@ -98,8 +98,8 @@ const Card = (props) => {
                 {dateEnd}
               </p>
             </div>
-            <h1 className="text-xl font-semibold mt-2 border-t py-1">
-              {title.length > 32 ? title.slice(0, 32) + '...' : title}
+            <h1 className="font-myTitle text-2xl font-thin tracking-wider text-slate-700 mt-2 border-t py-1">
+              {title.length > 25 ? title.slice(0, 25) + '...' : title}
             </h1>
             <p className="text-slate-500 my-1 text-sm flex items-center justify-center">
               <span className="mr-1">

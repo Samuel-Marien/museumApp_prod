@@ -29,9 +29,9 @@ const SocialLink = (props) => {
 
 const Footer = () => {
   return (
-    <div className="bg-slate-800 text-slate-300">
+    <div className="bg-slate-800 text-slate-300 font-myText">
       <div className="text-sm md:text-base italic text-center flex flex-wrap justify-center items-baseline">
-        <p className="p-1  pt-2 flex flex-wrap justify-center items-center">
+        <p className="p-1  pt-3 flex flex-wrap justify-center items-center">
           This website is not produced, endorsed, supported, or affiliated with
           the
           <span className="underline font-semibold ml-1">
@@ -62,7 +62,7 @@ const Footer = () => {
               <div>
                 <Logo />
               </div>
-              <h1 className="text-2xl lg:text-3xl font-black ml-2">
+              <h1 className="font-myTitle tracking-widest text-2xl lg:text-3xl font-bold ml-2">
                 Brooklyn Museum
               </h1>
             </div>
@@ -73,11 +73,11 @@ const Footer = () => {
               </p>
               <p className="text-xs md:text-sm italic">
                 The Brooklyn Museum stands on land that is part of the unceded,
-                ancestral homeland of the Lenape (Delaware) people.
+                <br /> ancestral homeland of the Lenape (Delaware) people.
               </p>
             </div>
           </div>
-          <div className="text-center md:text-end border-t border-t-slate-500 md:border-none mt-5 py-5 md:mt-0 md:py-0">
+          <div className="text-center md:text-end border-t border-t-slate-500 md:border-none mt-5 py-5 md:mt-0 md:py-4">
             <p>👋 Hello! I&apos;m Samuel Marien - Web Developer</p>
             <p className="">You like this site? Hire Me!</p>
 
@@ -101,7 +101,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-t-slate-500 text-center italic font-thin py-3 text-xl mx-5 md:mx-0">
+        <div className="font-myScript text-2xl border-t border-t-slate-500 text-center italic font-thin py-6 mx-5 md:mx-0">
           Il n’y a de vraiment beau que ce qui ne peut servir à rien ; tout ce
           qui est utile est laid. Théophile Gautier.
         </div>

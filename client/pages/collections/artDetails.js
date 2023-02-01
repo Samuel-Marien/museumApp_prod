@@ -156,8 +156,10 @@ const ArtDetails = () => {
               art.artists &&
               art.artists.map((item) => {
                 return (
-                  <p key={item.id}>
-                    <span className="font-bold uppercase">{item.role}: </span>
+                  <p className="font-myText" key={item.id}>
+                    <span className="font-myTitle tracking-wide uppercase">
+                      {item.role}:{' '}
+                    </span>
                     {item.name && item.name}
                     {item.dates && ', ' + item.dates}
                   </p>

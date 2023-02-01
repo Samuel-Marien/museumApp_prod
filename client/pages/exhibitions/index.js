@@ -57,7 +57,7 @@ const ExhibitionHome = () => {
       : setMyOffset((myOffset -= itemByPage))
   }
 
-  console.log(typeof myExhibitions)
+  // console.log(typeof myExhibitions)
 
   return (
     <>
@@ -74,36 +74,17 @@ const ExhibitionHome = () => {
         <Navbar />
         <div className="container mx-auto">
           <div>
-            <p className="text-5xl text-slate-400 font-bold text-center mt-5">
+            <p className="font-myTitle tracking-widest text-7xl text-slate-400 first-letter:text-slate-800 text-center mt-4">
               All our Exhibitions
             </p>
-
-            <div className="my-5 p-1 flex justify-center space-x-4 text-slate-400">
-              <button
-                onClick={handleMinusOffset}
-                className="text-3xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
-              >
-                <BsFillArrowLeftCircleFill />
-              </button>
-              <div className=" p-1 flex justify-center space-x-4 text-slate-400 w-36">
-                <p>
-                  Page : {Math.ceil(myOffset / itemByPage + 1)} /{' '}
-                  {Math.ceil(maxPlusOffset / itemByPage + 1)}
-                </p>
-              </div>
-              <button
-                onClick={handlePlusOffset}
-                className="text-3xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
-              >
-                <BsFillArrowRightCircleFill />
-              </button>
-            </div>
           </div>
+
+          {/* thumbnails container  */}
           {Object.entries(myExhibitions).length === 0 ? (
             <MySpinner />
           ) : (
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+              className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
         lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
             >
               {myExhibitions.map((item) => {
@@ -128,6 +109,28 @@ const ExhibitionHome = () => {
               })}
             </div>
           )}
+
+          {/* Pagination container  */}
+          <div className="my-5 p-1 flex justify-center space-x-2 text-slate-400">
+            <button
+              onClick={handleMinusOffset}
+              className="text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
+            >
+              <BsFillArrowLeftCircleFill />
+            </button>
+            <div className=" p-1 flex text-slate-400 ">
+              <p className="font-myTitle tracking-wide font-thin">
+                Page : {Math.ceil(myOffset / itemByPage + 1)} /{' '}
+                {Math.ceil(maxPlusOffset / itemByPage + 1)}
+              </p>
+            </div>
+            <button
+              onClick={handlePlusOffset}
+              className="text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
+            >
+              <BsFillArrowRightCircleFill />
+            </button>
+          </div>
         </div>
       </div>
     </>

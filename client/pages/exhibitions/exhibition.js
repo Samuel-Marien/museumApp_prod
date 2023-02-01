@@ -119,15 +119,17 @@ const Exhibition = () => {
         {Object.entries(myExhibition).length === 0 ? (
           <MySpinner />
         ) : (
-          <div>
-            <div className="text-2xl md:text-4xl font-black text-center mt-4 text-slate-400">
+          <div className="font-myText">
+            <div className="font-myTitle tracking-widest text-4xl mt-4 first-letter:text-slate-800 first-letter:text-5xl text-center text-slate-400">
               {myExhibition.title}
             </div>
-            <div className="text-sm md:text-base italic font-thin my-2 text-center text-slate-400">
-              <p>{myExhibition.display_date}</p>
-            </div>
-            <div className="text-base md:text-xl font-semibold text-slate-500 text-center">
-              {myExhibition.organizing_department}
+            <div className=" text-sm md:text-base italic font-thin my-2 text-center text-slate-400">
+              <p>
+                {myExhibition.display_date}
+                <span className="font-myTitle tracking-widest font-thin not-italic ml-3">
+                  | {myExhibition.organizing_department} |
+                </span>
+              </p>
             </div>
 
             {/* large screens */}
@@ -190,31 +192,34 @@ const Exhibition = () => {
               )}
             </div>
 
-            <div className="w-full flex justify-center md:space-x-48 space-x-10 mt-3">
-              <button
-                className="text-3xl hover:scale-105 hover:text-slate-400 active:text-slate-500 active:scale-95 transition-all duration-300"
-                onClick={handleMinusImage}
-              >
-                <BsFillArrowLeftCircleFill />
-              </button>
-              <p>
-                {myCurrentImage + 1}/{maxPlusImage}
-              </p>
-              <button
-                className="text-3xl hover:scale-105 hover:text-slate-400 active:text-slate-500 active:scale-95 transition-all duration-300"
-                onClick={handlePlusImage}
-              >
-                <BsFillArrowRightCircleFill />
-              </button>
+            {/* Pagination container  */}
+            <div className="mt-4 flex justify-center w-full  text-slate-400 ">
+              <div className="flex space-x-4">
+                <button
+                  className=" text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
+                  onClick={handleMinusImage}
+                >
+                  <BsFillArrowLeftCircleFill />
+                </button>
+                <p className="font-myTitle tracking-wide font-thin ">
+                  {myCurrentImage + 1}/{maxPlusImage}
+                </p>
+                <button
+                  className="text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
+                  onClick={handlePlusImage}
+                >
+                  <BsFillArrowRightCircleFill />
+                </button>
+              </div>
             </div>
 
             {myExhibition.images && (
-              <div className="mt-2 text-center w-11/12 md:w-10/12 lg:w-8/12 xl:w-5/12 p-1 px-5 mx-auto  justify-between">
-                <p className="font-semibold text-base md:text-xl ">
+              <div className="mt-1 text-center w-11/12 md:w-10/12 lg:w-8/12 xl:w-5/12 p-1 px-5 mx-auto  justify-between">
+                <p className="font-semibold tracking-wide ">
                   {myExhibition.images[myCurrentImage] &&
                     myExhibition.images[myCurrentImage].caption}
                 </p>
-                <div className="flex justify-center space-x-6 mt-2">
+                <div className="flex justify-center space-x-6 mt-1">
                   <p className="italic text-slate-400 text-sm md:text-base">
                     {myExhibition.images[myCurrentImage] &&
                       myExhibition.images[myCurrentImage].citation}
