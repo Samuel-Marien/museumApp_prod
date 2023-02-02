@@ -123,11 +123,24 @@ const Exhibition = () => {
             <div className="font-myTitle tracking-widest text-4xl mt-4 first-letter:text-slate-800 first-letter:text-5xl text-center text-slate-400">
               {myExhibition.title}
             </div>
-            <div className=" text-sm md:text-base italic font-thin my-2 text-center text-slate-400">
-              <p>
-                {myExhibition.display_date}
+            <div className=" text-sm md:text-base italic font-thin mt-2 text-center text-slate-400">
+              <p className="flex my-4 justify-center space-x-6 items-center">
                 <span className="font-myTitle tracking-widest font-thin not-italic ml-3">
                   | {myExhibition.organizing_department} |
+                </span>
+                <span
+                  className="font-myTitle tracking-wider text-2xl flex items-center justify-center 
+                  ml-2 border border-slate-500 rounded-sm px-1 py-0.5 cursor-pointer shadow 
+                  active:translate-y-1 transition-all duration-300 bg-slate-500 text-slate-200 
+                  hover:bg-slate-200 hover:text-slate-500 "
+                  onClick={handleSubmit}
+                >
+                  <span className="mr-2 text-base not-italic animate-pulse hover:animate-none">
+                    Save
+                  </span>
+                  <span>
+                    <HiOutlineSaveAs />
+                  </span>
                 </span>
               </p>
             </div>
@@ -135,22 +148,8 @@ const Exhibition = () => {
             {/* large screens */}
             <div
               style={{ minHeight: '600px', minWidth: '800px' }}
-              className="hidden  mx-auto md:flex justify-center mt-3 overflow-hidden w-max "
+              className="hidden  mx-auto md:flex flex-col justify-center overflow-hidden w-max "
             >
-              <button
-                style={{ minWidth: '800px' }}
-                onClick={handleSubmit}
-                className="absolute text-end pr-7 pt-2  "
-              >
-                <span
-                  className="inline-block text-2xl text-slate-400 border border-slate-300 p-0.5 shadow-xl rounded bg-slate-800 bg-opacity-20 
-          hover:text-slate-100 hover:text-3xl hover:border-none hover:bg-none hover:bg-opacity-0 hover:shadow-none 
-           rotate-180 hover:rotate-0 active:translate-y-2 active:text-green-400 focus:border-green-400 transition-all duration-300"
-                >
-                  <HiOutlineSaveAs />
-                </span>
-              </button>
-
               {myExhibition.images && (
                 <AnimatePresence>
                   <MyItem
@@ -168,18 +167,6 @@ const Exhibition = () => {
               style={{ minHeight: '300px' }}
               className="md:hidden mx-auto flex justify-center mt-5 overflow-hidden w-full p-2 rounded shadow-xl"
             >
-              <button
-                onClick={handleSubmit}
-                className="absolute mt-2 text-end  w-full pr-4 "
-              >
-                <span
-                  className="inline-block text-2xl text-slate-400 border border-slate-300 p-0.5 shadow-xl rounded bg-slate-800 bg-opacity-20 
-          hover:text-slate-100 hover:text-3xl hover:border-none hover:bg-none hover:bg-opacity-0 hover:shadow-none 
-           rotate-180 hover:rotate-0 active:translate-y-2 active:text-green-400 focus:border-green-400 transition-all duration-300"
-                >
-                  <HiOutlineSaveAs />
-                </span>
-              </button>
               {myExhibition.images && (
                 <AnimatePresence>
                   <MyItem
