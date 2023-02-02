@@ -103,7 +103,7 @@ const LandingCollections = () => {
     }
   }, [])
 
-  console.log(myCollection)
+  // console.log(myCollection)
   // console.log(test)
 
   return (
