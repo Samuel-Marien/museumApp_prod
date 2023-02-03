@@ -1,6 +1,7 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { useAppContext } from '../context/appContext'
 
@@ -8,10 +9,28 @@ import ThumbnailArts from './ThumbnailArts'
 import ExhibBtnContainer from './ExhibBtnContainer '
 import FormRow from './FormRow'
 import FormRowSelect from './FormRowSelect'
+import MyToast from './MyToast'
 
 import { FaSearch, FaStar } from 'react-icons/fa'
 import { MdOutlineSort } from 'react-icons/md'
 import { IoIosAlbums, IoIosCalendar } from 'react-icons/io'
+
+const notify = (artName, filename, artSection) =>
+  artName
+    ? toast.custom(
+        <MyToast
+          toastName={artName}
+          myUrl={filename}
+          artSection={artSection}
+          isShow={false}
+          isVisible={true}
+        />,
+        {
+          duration: 1000,
+          position: 'top-center'
+        }
+      )
+    : toast.error('Here is an error!')
 
 const ExhibArtsContainer = () => {
   const {
@@ -77,8 +96,14 @@ const ExhibArtsContainer = () => {
     }
   }
 
+  const handleAddToFavoriteFunc = (artId, artFavorite, artTitle) => {
+    if (!artFavorite) notify(artTitle, null, null)
+    addExhibitionArtToFavorite(artId, artFavorite ? false : true)
+  }
+
   return (
     <div>
+      <Toaster />
       {/* Form */}
       <motion.div
         initial={{ opacity: 0, y: -25 }}
@@ -203,9 +228,10 @@ const ExhibArtsContainer = () => {
                 isFavorite={art.isFavorite}
                 deleteFunc={() => deleteExhibArt(art._id)}
                 addToFavoriteFunc={() =>
-                  addExhibitionArtToFavorite(
+                  handleAddToFavoriteFunc(
                     art._id,
-                    art.isFavorite ? false : true
+                    art.isFavorite,
+                    art.exibitionTitle
                   )
                 }
               />

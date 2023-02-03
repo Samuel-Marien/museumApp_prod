@@ -1,18 +1,37 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { useAppContext } from '../context/appContext'
 import FormRow from './FormRow'
 import FormRowSelect from './FormRowSelect'
 import ThumbnailArts from './ThumbnailArts'
 import CollecBtnContainer from './CollecBtnContainer'
+import MyToast from './MyToast'
 
 import { FaSearch, FaStar } from 'react-icons/fa'
 import { MdOutlineSort } from 'react-icons/md'
 import { IoIosAlbums, IoIosCalendar } from 'react-icons/io'
 
 let myImgUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
+
+const notify = (artName, filename, artSection) =>
+  artName
+    ? toast.custom(
+        <MyToast
+          toastName={artName}
+          myUrl={filename}
+          artSection={artSection}
+          isShow={false}
+          isVisible={true}
+        />,
+        {
+          duration: 1000,
+          position: 'top-center'
+        }
+      )
+    : toast.error('Here is an error!')
 
 const CollecArtsContainer = () => {
   const {
@@ -85,8 +104,14 @@ const CollecArtsContainer = () => {
     }
   }
 
+  const handleAddToFavoriteFunc = (artId, artFavorite, artTitle) => {
+    if (!artFavorite) notify(artTitle, null, null)
+    addCollectionArtToFavorite(artId, artFavorite ? false : true)
+  }
+
   return (
     <div>
+      <Toaster />
       <motion.div
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: 1, y: 0 }}
@@ -259,10 +284,7 @@ const CollecArtsContainer = () => {
                 imageUrl={`${myImgUrl}/size4/${art.primaryImage}`}
                 deleteFunc={() => deleteCollecArt(art._id)}
                 addToFavoriteFunc={() =>
-                  addCollectionArtToFavorite(
-                    art._id,
-                    art.isFavorite ? false : true
-                  )
+                  handleAddToFavoriteFunc(art._id, art.isFavorite, art.artTitle)
                 }
               />
             )

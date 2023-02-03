@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { useAppContext } from '../../context/appContext'
 
@@ -10,12 +11,30 @@ import useHasMounted from '../../components/hooks/useHasMounted'
 import MyHeader from '../../components/MyHeader'
 import Navbar from '../../components/Navbar'
 import MySpinner from '../../components/MySpinner'
+import MyToast from '../../components/MyToast'
 
 import { HiOutlineSaveAs } from 'react-icons/hi'
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill
 } from 'react-icons/bs'
+
+const notify = (artName, filename, artSection) =>
+  artName
+    ? toast.custom(
+        <MyToast
+          toastName={artName}
+          myUrl={filename}
+          artSection={artSection}
+          isShow={true}
+          isVisible={false}
+        />,
+        {
+          duration: 1500,
+          position: 'top-center'
+        }
+      )
+    : toast.error('Here is an error!')
 
 const MyItem = (props) => {
   const { itemUrl } = props
@@ -69,6 +88,11 @@ const Exhibition = () => {
   }, [router.isReady, id])
 
   const handleSubmit = (e) => {
+    notify(
+      myExhibition.title,
+      `https://${myExhibition.images[myCurrentImage].standard_size_url}`,
+      'Exhibition'
+    )
     e.preventDefault()
     saveExhibArt(
       myExhibition.title,
@@ -103,6 +127,8 @@ const Exhibition = () => {
     return null
   }
 
+  console.log(myExhibition)
+
   return (
     <>
       <MyHeader description="Detailed exhibition" />
@@ -115,6 +141,7 @@ const Exhibition = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
+        <Toaster />
         <Navbar />
         {Object.entries(myExhibition).length === 0 ? (
           <MySpinner />
