@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import parse, { domToReact } from 'html-react-parser'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { useAppContext } from '../../context/appContext'
 import useHasMounted from '../../components/hooks/useHasMounted'
@@ -12,6 +13,41 @@ import ArtDetailsContainer from '../../components/ArtDetailsContainer'
 import Navbar from '../../components/Navbar'
 
 let imageUrl = process.env.NEXT_PUBLIC_API_URL_IMAGE_OBJECTS
+
+const MyToast = (props) => {
+  const { toastName, toastfilename, artSection } = props
+  return (
+    <div className="flex font-myText bg-slate-200 px-5 py-2 rounded border border-yellow-500 shadow-2xl">
+      <img
+        className="h-20"
+        src={`https://${imageUrl}/size1/${toastfilename}`}
+      />
+      <div className="text-center px-2">
+        <p className="font-myTitle tracking-widest">🎉 Successfully saved!</p>
+        <p className="font-bold tracking-wide">{toastName}</p>
+        <p>
+          In your own <span className="font-bold">{artSection}</span>{' '}
+          collection.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+const notify = (artName, filename, artSection) =>
+  artName
+    ? toast.custom(
+        <MyToast
+          toastName={artName}
+          toastfilename={filename}
+          artSection={artSection}
+        />,
+        {
+          duration: 1500,
+          position: 'top-center'
+        }
+      )
+    : toast.error('Here is an error!')
 
 const ArtDetails = () => {
   const { saveCollectionArt, user } = useAppContext()
@@ -75,6 +111,7 @@ const ArtDetails = () => {
   }
 
   const handleSubmit = (e) => {
+    notify(art.title, art.primary_image, art.collections[0].name)
     e.preventDefault()
     saveCollectionArt(
       art.collections[0].name,
@@ -121,6 +158,7 @@ const ArtDetails = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
+        <Toaster />
         <Navbar />
         <div className="container mx-auto md:mt-10 mt-2">
           <ArtDetailsContainer

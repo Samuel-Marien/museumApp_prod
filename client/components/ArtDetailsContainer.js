@@ -26,7 +26,7 @@ const MyButton = (props) => {
       onClick={onClick}
       className={`${classNames} flex justify-around font-semibold uppercase text-sm items-center p-1 
       bg-slate-800 text-slate-300 shadow-none hover:shadow-lg hover:bg-slate-300 
-      active:shadow-none hover:text-slate-800 transition-all duration-300 `}
+      active:shadow-none hover:text-slate-800 transition-all duration-300`}
     >
       {title}
       {whatToShow ? (
@@ -163,6 +163,7 @@ const ArtDetailsContainer = (props) => {
           {section && ` - ${section}`}
         </p>
 
+        {/* Top buttons  */}
         <div className="mt-5 flex items-center justify-between ">
           <div className="flex space-x-1 justify-center">
             <MyButton
@@ -182,7 +183,6 @@ const ArtDetailsContainer = (props) => {
               }
             />
           </div>
-
           <div className="lg:mt-0">
             <MyButton
               onClick={onClick}
@@ -192,10 +192,12 @@ const ArtDetailsContainer = (props) => {
                 </span>
               }
               classNames=" border-2 rounded hover:border-yellow-500 bg-gray-300 text-gray-800 
-              hover:bg-gray-800 hover: hover:text-gray-300 active:text-gray-100 space-x-5"
+              hover:bg-gray-800 hover: hover:text-gray-300 active:text-gray-100 space-x-5 active:translate-y-1 active:border-yellow-100"
             />
           </div>
         </div>
+
+        {/* Label & infos  */}
         <div className="font-myText mt-2 text-justify first-letter:font-bold first-letter:text-3xl">
           {showLabelText && (
             <motion.div
