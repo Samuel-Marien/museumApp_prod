@@ -7,6 +7,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useAppContext } from '../../context/appContext'
 import useHasMounted from '../../components/hooks/useHasMounted'
 import { getOneArtDetails } from '../../components/API'
+import bgSwitch from '../../utils/bgSwitch'
 
 import MyHeader from '../../components/MyHeader'
 import ArtDetailsContainer from '../../components/ArtDetailsContainer'
@@ -37,6 +38,7 @@ const ArtDetails = () => {
   const [art, setArt] = useState([])
   const [myCurrentImage, setMyCurrentImage] = useState(0)
   const [myThumbArray, setThumbMyArray] = useState(0)
+  const [urlSwitcher, setUrlSwitcher] = useState('')
 
   const router = useRouter()
   const { id } = router.query
@@ -88,13 +90,22 @@ const ArtDetails = () => {
 
   const maxPlusImage = art.images && art.images.length
 
+  useEffect(() => {
+    if (art.collections) {
+      setUrlSwitcher(bgSwitch(art.collections[0].name))
+    }
+
+    return function cleanup() {
+      console.log('clean')
+    }
+  }, [art.collections])
+
   const hasMounted = useHasMounted()
   if (!hasMounted) {
     return null
   }
 
   const handleSubmit = (e) => {
-    // notify(art.title, art.primary_image, art.collections[0].name)
     notify(
       art.title,
       `https://${imageUrl}/size1/${art.primary_image}`,
@@ -140,7 +151,7 @@ const ArtDetails = () => {
       <div
         className="h-screen "
         style={{
-          background: 'url(/images/landingUserCollection.png)',
+          backgroundImage: `url(/images/${urlSwitcher})`,
           backgroundSize: 'cover',
           backgroundPosition: ' center',
           backgroundRepeat: 'no-repeat'
