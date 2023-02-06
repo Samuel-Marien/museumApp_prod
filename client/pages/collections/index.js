@@ -8,12 +8,12 @@ import Typed from 'react-typed'
 import { getArtsByCollect, getArtsBySearch } from '../../components/API'
 import useHasMounted from '../../components/hooks/useHasMounted'
 import { useAppContext } from '../../context/appContext'
+import bgSwitch from '../../utils/bgSwitch'
 
 import MyHeader from '../../components/MyHeader'
 import Navbar from '../../components/Navbar'
 import MySpinner from '../../components/MySpinner'
 
-import { HiOutlineSaveAs } from 'react-icons/hi'
 import { FaSearch } from 'react-icons/fa'
 import {
   BsFillArrowLeftCircleFill,
@@ -234,6 +234,15 @@ const CollectionsHome = () => {
   const [userSearch, setUserSearch] = useState('')
   const [totalPages, setTotalPages] = useState(0)
   const [itemByPage, setItemByPage] = useState(12)
+  const [urlSwitcher, setUrlSwitcher] = useState('')
+
+  useEffect(() => {
+    setUrlSwitcher(bgSwitch(myCollectionIntro.name))
+
+    return function cleanup() {
+      console.log('clean')
+    }
+  }, [myCollectionIntro.name])
 
   useEffect(() => {
     if (!user) {
@@ -326,9 +335,9 @@ const CollectionsHome = () => {
       <div
         className="h-screen "
         style={{
-          background: 'url(/images/landingUserCollection.png)',
+          backgroundImage: `url(/images/${urlSwitcher})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'bottom',
           backgroundRepeat: 'no-repeat'
         }}
       >
