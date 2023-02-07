@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 
 const RoundedSpinner = () => {
   return (
@@ -88,8 +89,38 @@ const RoundedSpinner = () => {
   )
 }
 
+const MyLink = (props) => {
+  const { title, path } = props
+  return (
+    <Link href={path}>
+      <span className="hover:border-b hover:shadow-lg border-slate-500 pb-2 bg-slate-200 px-2 p-1 rounded-sm cursor-pointer">
+        {title}
+      </span>
+    </Link>
+  )
+}
+
 const UserMessage = () => {
-  return <div>No data to display :(</div>
+  return (
+    <div>
+      <div>
+        <p className=" mt-3 text-2xl pb-3">
+          <span className="text-7xl mb-5 text-center block font-semibold">
+            Oops!
+          </span>{' '}
+          We can&apos;t seem to find the page you&apos;re looking for :(
+        </p>
+        <div className=" pt-3 text-center flex flex-col items-center justify-center  w-full">
+          <p className=" underline">Here are some helpful links instead:</p>
+          <ul className="flex space-x-4 mt-2 justify-center">
+            <MyLink title="Home" path="/" />
+            <MyLink title="Collections" path="/collections/?id=9" />
+            <MyLink title="Exhibitions" path="/exhibitions" />
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 const MySpinner = () => {
@@ -97,7 +128,7 @@ const MySpinner = () => {
 
   setTimeout(() => {
     setDisplayMsg(true)
-  }, 30000)
+  }, 10000)
 
   return (
     <div>
