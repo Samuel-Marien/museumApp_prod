@@ -127,8 +127,6 @@ const Exhibition = () => {
     return null
   }
 
-  console.log(myExhibition)
-
   return (
     <>
       <MyHeader description="Detailed exhibition" />
@@ -147,32 +145,48 @@ const Exhibition = () => {
           <MySpinner />
         ) : (
           <div className="font-myText">
-            <div className="font-myTitle tracking-widest text-4xl mt-4 first-letter:text-slate-800 first-letter:text-5xl text-center text-slate-400">
+            <div
+              className="font-myTitle tracking-widest text-3xl md:text-4xl lg:text-5xl border-b w-max
+            border-slate-600 container mx-auto py-3 text-slate-400 text-center mt-4"
+            >
               {myExhibition.title}
             </div>
             <div className=" text-sm md:text-base italic font-thin mt-2 text-center text-slate-400">
-              <p className="flex my-4 justify-center space-x-6 items-center">
+              <p className="flex my-4 justify-center space-x-6 items-center ">
                 <span className="font-myTitle tracking-widest font-thin not-italic ml-3">
-                  | {myExhibition.organizing_department} |
+                  |{' '}
+                  {myExhibition.organizing_department ? (
+                    myExhibition.organizing_department
+                  ) : (
+                    <span className="italic text-sm">
+                      No departement for this exhibition
+                    </span>
+                  )}{' '}
+                  |
                 </span>
                 <span
-                  className="font-myTitle tracking-wider text-2xl flex items-center justify-center 
-                  ml-2 border border-slate-500 rounded-sm px-1 py-0.5 cursor-pointer shadow 
-                  active:translate-y-1 transition-all duration-300 bg-slate-500 text-slate-200 
-                  hover:bg-slate-200 hover:text-slate-500 "
+                  className="font-myTitle tracking-wider text-2xl flex items-center 
+                  ml-2 border border-slate-500 rounded-sm cursor-pointer shadow
+                  active:translate-y-1 bg-slate-500 text-slate-200 px-3 py-0.5
+                  hover:bg-slate-200 hover:text-slate-500 transition-all duration-300
+                  [&>*:nth-child(even)]:hover:rotate-180
+                  [&>*:nth-child(even)]:hover:text-yellow-500
+                  [&>*:nth-child(even)]:hover:bg-slate-200
+                  [&>*:nth-child(even)]:hover:border-yellow-500
+                  [&>*:nth-child(even)]:active:-translate-y-3"
                   onClick={handleSubmit}
                 >
-                  <span className="mr-2 text-base not-italic animate-pulse hover:animate-none">
+                  <span className="mr-2 text-base not-italic animate-pulse hover:animate-none tracking-widest uppercase">
                     Save
                   </span>
-                  <span>
+                  <span className="text-slate-800 p-1 rounded-full border border-slate-800  transition-transform duration-500">
                     <HiOutlineSaveAs />
                   </span>
                 </span>
               </p>
             </div>
 
-            {/* large screens */}
+            {/* large screens (image) */}
             <div
               style={{ minHeight: '600px', minWidth: '800px' }}
               className="hidden  mx-auto md:flex flex-col justify-center overflow-hidden w-max "
@@ -189,7 +203,7 @@ const Exhibition = () => {
               )}
             </div>
 
-            {/* little screen device  */}
+            {/* little screen device (image)  */}
             <div
               style={{ minHeight: '300px' }}
               className="md:hidden mx-auto flex justify-center mt-5 overflow-hidden w-full p-2 rounded shadow-xl"
@@ -207,7 +221,7 @@ const Exhibition = () => {
             </div>
 
             {/* Pagination container  */}
-            <div className="mt-4 flex justify-center w-full  text-slate-400 ">
+            <div className="mt-4 flex justify-center w-full text-slate-700 ">
               <div className="flex space-x-4">
                 <button
                   className=" text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
@@ -233,7 +247,7 @@ const Exhibition = () => {
                   {myExhibition.images[myCurrentImage] &&
                     myExhibition.images[myCurrentImage].caption}
                 </p>
-                <div className="flex justify-center space-x-6 mt-1">
+                <div className="flex justify-center space-x-2 mt-1">
                   <p className="italic text-slate-400 text-sm md:text-base">
                     {myExhibition.images[myCurrentImage] &&
                       myExhibition.images[myCurrentImage].citation}

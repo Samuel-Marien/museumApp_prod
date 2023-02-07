@@ -75,15 +75,6 @@ const ThumbnailArts = (props) => {
                     typeSpeed={15}
                   />
                 </div>
-                {/* <button className="absolute text-end w-full p-1">
-                  <span
-                    className="inline-block text-slate-400 p-0.5 shadow-xl rounded bg-slate-800 bg-opacity-20 
-          hover:text-green-200 hover:bg-none hover:bg-opacity-0 hover:shadow-none 
-           rotate-180 hover:rotate-0 active:translate-y-2 active:text-green-400 focus:border-green-400 transition-all duration-300"
-                  >
-                    <HiOutlineSaveAs />
-                  </span>
-                </button> */}
               </>
             )}
           </div>
@@ -139,7 +130,6 @@ const MyForm = (props) => {
   } = props
 
   const list = ['highlight', 'full', 'history']
-  // const listItemByPage = [8, 16, 24, 32]
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center mt-5 mb-10 text-slate-800">
@@ -153,7 +143,7 @@ const MyForm = (props) => {
           name="sortBySection"
           value={selectValue}
           onChange={onSelectChange}
-          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm sm:rounded-l-sm focus:outline-none mr-1 "
+          className="bg-slate-500 bg-opacity-50 text-slate-50 rounded-sm sm:rounded-l-sm focus:outline-none mr-1 capitalize tracking-wide"
         >
           {list.map((itemValue, index) => {
             return (
@@ -329,6 +319,8 @@ const CollectionsHome = () => {
     return null
   }
 
+  // console.log(highlightImg)
+
   return (
     <>
       <MyHeader description={`${myCollectionIntro.name} Collection`} />
@@ -342,9 +334,22 @@ const CollectionsHome = () => {
         }}
       >
         <Navbar />
-        <div className="md:text-4xl  text-center mt-4 text-slate-400">
-          <p className="font-myTitle tracking-widest text-7xl first-letter:text-slate-800">
-            {myCollectionIntro.name}
+        <div className="text-center mt-4 ">
+          <p
+            className="font-myTitle tracking-widest text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl 
+          text-slate-800 border border-slate-600 container mx-auto py-3"
+          >
+            {myCollectionIntro.name ===
+              'Egyptian, Classical, Ancient Near Eastern Art' &&
+              'Egyptian Classical Art'}
+            {myCollectionIntro.name ===
+              'Elizabeth A. Sackler Center for Feminist Art' &&
+              'E.A. Sackler Feminist Art'}
+            {myCollectionIntro.name !==
+              'Elizabeth A. Sackler Center for Feminist Art' &&
+              myCollectionIntro.name !==
+                'Egyptian, Classical, Ancient Near Eastern Art' &&
+              myCollectionIntro.name}
           </p>
         </div>
         <MyForm
@@ -362,31 +367,40 @@ const CollectionsHome = () => {
         ) : (
           <div className="mx-auto w-full px-3 md:px-10 ">
             {/* highlight  */}
-            {artToDisplay === 'highlight' && (
-              <div
-                className="container mx-auto mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
-              >
-                {highlightImg.map((item) => {
-                  return (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{
-                        duration: 0.5
-                      }}
-                    >
-                      <ThumbnailArts
-                        title={item.title}
-                        myUrl={`${imageUrl}/size4/${item.primary_image}`}
-                        artId={item.id}
-                      />
-                    </motion.div>
-                  )
-                })}
-              </div>
-            )}
+            <div className="container mx-auto mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0">
+              {artToDisplay === 'highlight' &&
+                (highlightImg.length > 1 ? (
+                  highlightImg.map((item) => {
+                    return (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 0.5
+                        }}
+                      >
+                        <ThumbnailArts
+                          title={item.title}
+                          myUrl={`${imageUrl}/size4/${item.primary_image}`}
+                          artId={item.id}
+                        />
+                      </motion.div>
+                    )
+                  })
+                ) : (
+                  <div className="container md:absolute w-full flex flex-col items-center text-xl">
+                    <img
+                      className="rounded-lg shadow-2xl mb-5"
+                      src={'/images/noData.jpg'}
+                    />
+                    <p>Sorry but currently there are no Highlights Arts for</p>
+                    <p className="font-myTitle tracking-widest">
+                      {myCollectionIntro.name}
+                    </p>
+                  </div>
+                ))}
+            </div>
 
             {/* full  */}
             {artToDisplay === 'full' && (

@@ -287,7 +287,7 @@ const Navbar = () => {
                               <li
                                 onClick={() => setShow(false)}
                                 key={item.id}
-                                className="text-sm py-0.5"
+                                className="text-sm py-0.5 cursor-pointer hover:text-gray-200"
                               >
                                 {item.title}
                               </li>
@@ -384,7 +384,7 @@ const Navbar = () => {
                     <li
                       onClick={() => setShowCollectionsMenu(false)}
                       key={item.id}
-                      className=" cursor-pointer py-1 px-4 w-56 bg-slate-800 bg-opacity-40 hover:border-r-2 hover:bg-opacity-80 hover:font-semibold hover:text-slate-200 transition-all duration-200"
+                      className=" cursor-pointer py-1 px-4 w-56 bg-slate-800 bg-opacity-80 hover:border-r-2 hover:bg-opacity-90 hover:font-semibold hover:text-slate-200 transition-all duration-200"
                     >
                       {item.title}
                     </li>
