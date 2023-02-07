@@ -215,16 +215,15 @@ const ArtDetails = () => {
               art.collections &&
               art.collections.map((item) => {
                 return (
-                  <span key={item.id}>
-                    <Link
-                      href={{
-                        pathname: '/collections/',
-                        query: { id: item.id }
-                      }}
-                    >
-                      {item.name}
-                    </Link>
-                  </span>
+                  <Link
+                    key={item.id}
+                    href={{
+                      pathname: '/collections/',
+                      query: { id: item.id }
+                    }}
+                  >
+                    {item.name}
+                  </Link>
                 )
               })
             }

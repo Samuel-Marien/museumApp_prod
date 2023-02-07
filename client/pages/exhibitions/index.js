@@ -31,7 +31,7 @@ const ExhibitionHome = () => {
   }, [user, router])
 
   const maxPlusOffset = 2752
-  const itemByPage = 12
+  const itemByPage = 10
 
   useEffect(() => {
     const response = async () => {
@@ -74,7 +74,7 @@ const ExhibitionHome = () => {
         <Navbar />
         <div className="container mx-auto">
           <div>
-            <p className="font-myTitle tracking-widest text-7xl text-slate-400 first-letter:text-slate-800 text-center mt-4">
+            <p className="font-myTitle tracking-widest text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl border border-slate-600 container mx-auto py-3 text-slate-400 text-center mt-4">
               All our Exhibitions
             </p>
           </div>
@@ -85,14 +85,14 @@ const ExhibitionHome = () => {
           ) : (
             <div
               className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-4 xl:grid-cols-6 gap-6 p-4 sm:p-0"
+        lg:grid-cols-5  gap-6 p-4 sm:p-0"
             >
               {myExhibitions.map((item) => {
                 return (
                   <Card
                     userConnected={true}
                     key={item.id}
-                    cardSize="12rem"
+                    cardSize="14rem"
                     isLoading={user}
                     id={item.id}
                     title={item.title}
@@ -111,14 +111,14 @@ const ExhibitionHome = () => {
           )}
 
           {/* Pagination container  */}
-          <div className="my-5 p-1 flex justify-center space-x-2 text-slate-400">
+          <div className="my-5 p-1 flex justify-center space-x-2 text-slate-700">
             <button
               onClick={handleMinusOffset}
               className="text-2xl hover:scale-105 hover:text-slate-300 active:text-slate-500 active:scale-95 transition-all duration-300"
             >
               <BsFillArrowLeftCircleFill />
             </button>
-            <div className=" p-1 flex text-slate-400 ">
+            <div className=" p-1 flex ">
               <p className="font-myTitle tracking-wide font-thin">
                 Page : {Math.ceil(myOffset / itemByPage + 1)} /{' '}
                 {Math.ceil(maxPlusOffset / itemByPage + 1)}

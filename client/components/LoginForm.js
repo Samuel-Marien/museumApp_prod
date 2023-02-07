@@ -42,8 +42,8 @@ const LoginForm = () => {
         setSubmitting(false)
       }}
     >
-      <Form className="p-5 flex flex-col text-slate-300 md:text-slate-700">
-        <h1 className="font-myTitle tracking-widest text-slate-600 text-center my-2  uppercase text-3xl">
+      <Form className="p-5 flex flex-col text-slate-600 md:text-slate-700 w-96 bg-slate-300 bg-opacity-50 rounded">
+        <h1 className="border-b border-slate-400 pb-2 font-myTitle tracking-widest text-slate-600 text-center my-2  uppercase text-3xl">
           Login
         </h1>
         {alertText && alertType === 'danger' && (

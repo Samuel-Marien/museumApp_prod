@@ -31,10 +31,8 @@ const Login = () => {
             </a>
           </Link>
         </div>
-        <div className="flex justify-center md:justify-end md:mr-80 md:pt-36">
-          <div className="w-96 ">
-            <LoginForm />
-          </div>
+        <div className="flex justify-center lg:justify-end lg:mr-80 md:pt-36">
+          <LoginForm />
         </div>
       </div>
     </>

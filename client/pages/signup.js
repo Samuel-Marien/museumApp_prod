@@ -31,10 +31,8 @@ const Signup = () => {
             </a>
           </Link>
         </div>
-        <div className="flex justify-center md:justify-end md:mr-80 md:pt-36">
-          <div className="w-96 ">
-            <SignupForm />
-          </div>
+        <div className="flex justify-center lg:justify-end lg:mr-80 sm:pt-36 ">
+          <SignupForm />
         </div>
       </div>
     </>
